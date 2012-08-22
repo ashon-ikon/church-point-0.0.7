@@ -1,0 +1,39 @@
+<?php 
+	$form 		= $this->form;
+	$this->headLink()->appendStylesheet($this->baseUrl() .'/css/addspeaker.css');
+	$this->headScript()->appendFile($this->baseUrl() .'/js/jquery.validate.js' , 'text/javascript');
+	$this->headScript()->appendFile($this->baseUrl() .'/js/jquery.addspeaker.js' , 'text/javascript');
+	
+	/* redirect user on successful update */
+	if ($this->successmsg)
+		$this->headMeta()->appendHttpEquiv('Refresh', APP_PAGE_REDIRECT .';URL=' .$this->speaker_view_url);
+?>
+<div id="speaker" class="">
+	<?php if ($this->successmsg):?>
+	<p id="successhead" class="headerfont info rdcorners greenbox"><strong>Done!</strong></p>
+	<div class="info rdcorners whitebox">
+		<p> <?php echo $this->successmsg; ?> </p>
+		<p><strong>Page will be redirecting you in 5sec(s) back to speaker's profile</strong></p>
+	</div>
+	<?php endif; ?>
+	<?php if ($this->errormsgs){ echo '<div class="error rdcorners">'; foreach($this->errormsgs as $err) { echo '<p>'.$err.'</p>';} echo '</div>';}?>
+	<?php if ($form):?>
+		<div class="contentpad greybox rdcorners">
+		<div><p>Go to <a class="xbutton" href="<?php echo $this->fullUrl(array('action'=>'managespeakers'), null , false);?>" title="Go to all speakers list">speakers list</a></p></div>
+		<?php echo $form->getFormHeadTag(); ?>
+		<div class="info whitebox rdcorners">
+			<div class="form-field"><strong class="title"><em>*</em> Speaker's Firstname:</strong><?php echo $form->firstname; ?></div>
+			<div class="form-field"><strong class="title"><em>*</em> Speaker's Lastname:</strong><?php echo $form->lastname; ?></div>
+			<div class="form-field"><strong class="title"> Speaker's Email:</strong><?php echo $form->email; ?></div>
+			<div class="form-field"><strong class="title">Speaker's Image:</strong><?php echo $form->image; ?></div>
+			<div class="form-field"><strong class="title">&nbsp;</strong><?php echo $form->submit; ?></div>
+			<p class="form-notice">All fields marked <em>*</em> are required</p>
+		</div>
+		<?php echo $form->formClose(); ?>
+		</div>	
+	<?php elseif (!$this->successmsg):?>
+	<div class="info whitebox rdcorners">
+		<p> Opps! Error</p>
+	</div>
+	<?php endif;?>
+</div>

@@ -1,0 +1,30 @@
+<?php 
+	$form 		= $this->form;
+	$this->headLink()->appendStylesheet($this->baseUrl() .'/css/album.css');
+	$this->headScript()->appendFile($this->baseUrl() .'/js/jquery.album.js' , 'text/javascript');
+?>
+<div id="album-add" class="contentpad greybox rdcorners">
+	<?php if ($this->successmsg):?>
+	<p id="successhead" class="headerfont info rdcorners greenbox"><strong>Done!</strong></p>
+	<div class="info rdcorners whitebox">
+		<p> <?php echo $this->successmsg; ?> </p>
+		<p>Now you can start adding images by clicking <a href="<?php echo $this->url(array('controller'=>'images', 'action'=>'upload'), null, false);?>"><span class="xbutton">here</span></a></p>
+	</div>
+	<?php endif; ?>
+	<?php if ($this->errormsgs){ echo '<div class="error rdcorners">'; foreach($this->errormsgs as $err) { echo '<p>'.$err.'</p>';} echo '</div>';}?>
+	<?php if ($form):?>
+		<div>
+		<?php echo $form->getFormHeadTag(); ?>
+		<div class="info whitebox rdcorners">
+			<div class="form-field"><strong class="title">* Album Name:</strong><?php echo $form->album_name; ?></div>
+			<div class="form-field"><strong class="title"> Album Desc:</strong><?php echo $form->album_desc; ?></div>
+			<div class="form-field"><strong class="title">&nbsp;</strong><?php echo $form->submit; ?></div>
+		</div>
+		<?php echo $form->formClose(); ?>
+		</div>	
+	<?php else:?>
+	<div class="info whitebox rdcorners">
+		<p> Opps! Error</p>
+	</div>
+	<?php endif;?>
+</div>

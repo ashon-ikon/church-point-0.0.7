@@ -1,0 +1,60 @@
+<?php 
+	$form 		= $this->form;
+	//$article 	= $this->article;
+	$this->headLink()->appendStylesheet($this->baseUrl() .'/css/sermonedit.css');
+	$this->headLink()->appendStylesheet($this->baseUrl() .'/css/jquery.datepicker.css');
+	$this->headScript()->appendFile($this->baseUrl() .'/js/jquery.validate.js' , 'text/javascript');
+	$this->headScript()->appendFile($this->baseUrl() .'/js/jquery-ui-1.8.16.custom.min.js' , 'text/javascript');
+	$this->headScript()->appendFile($this->baseUrl() .'/js/jquery-ui-1.8.16.datetimepicker.min.js' , 'text/javascript');
+	$this->headScript()->appendFile($this->baseUrl() .'/js/jquery.sermonedit.js' , 'text/javascript');
+?>
+<div id="article-edit" class="">
+	<?php if ($this->successmsg):?>
+	<p id="successhead" class="headerfont info rdcorners greenbox"><strong>Done!</strong></p>
+	<div class="info rdcorners whitebox">
+		<p> <?php echo $this->successmsg; ?> </p>
+	</div>
+	<?php endif; ?>
+	<?php if ($this->errormsgs){ echo '<div class="error rdcorners">'; foreach($this->errormsgs as $err) { echo '<p>'.$err.'</p>';} echo '</div>';}?>
+	<?php if ($form):?>
+		<div class="contentpad greybox rdcorners">
+		<?php echo $form->getFormHeadTag(); ?>
+		<div class="info whitebox rdcorners">
+			<div class="form-field"><strong class="title"><em>*</em> Sermon Tile:</strong><?php echo $form->sermon_title; ?></div>
+			<div class="form-field"><strong class="title"><em>*</em> Speaker's Name :</strong><?php echo $form->speaker; ?>&nbsp;&nbsp;<a href="addspeaker" title="Add new speaker" class="xbutton">Add New Speaker</a>&nbsp;<a href="managespeakers" title="Manage the speakers" class="xbutton">Mange Speakers</a></div>
+			<div class="form-field"><strong class="title"><em>*</em> Sermon Date:</strong><?php echo $form->sermon_date; ?></div>
+			<div class="form-field"><strong class="title"><em>*</em> Sermon Content:</strong><div class="contentpad info"><?php echo $this->sermon_editor; ?></div></div>
+			<div class="form-field"><strong class="title"> Sermon Highlights:</strong><?php echo $form->sermon_highlights; ?></div>
+			<div class="form-field"><strong class="title">&nbsp;</strong><?php echo $form->preview, ' &nbsp; ', $form->submit, ' &nbsp; ', $form->cancel; ?></div>
+		</div>
+		<?php if($this->preview_sermon):?>
+			<div class="info whitebox rdcorners">
+			<h2 id="prev" class="aligncenter mspacev">Sermon Preview</h2>
+			<div id="sermon-preview" class="contentpad mspacev">
+				<div id="sermon-topic-preview" class=""><header>
+					<div id="sermon-title-preview" ><h2><?php echo $this->preview_title;?></h2>
+					<div class="speaker-info">
+					<?php if ($this->preview_speaker) echo '<span class="author">Sermon by <span class="author-name">'.$this->preview_speaker .'</span></span>'; 
+					?> on <time class="month"><?php echo date('M', 	$this->preview_time); ?></time>
+						<time class="day"><?php echo date('d', 		$this->preview_time); ?></time>
+						<time class="year"><?php echo date('Y', 	$this->preview_time); ?></time>
+						</div>
+						</div>
+					</header>
+				</div>
+				
+				<div id="sermon-content-preview" class="content">
+				
+				<?php echo $this->preview_sermon;?>
+				</div>
+			</div>
+			</div>
+		<?php endif; ?>
+		<?php echo $form->formClose(); ?>
+		</div>	
+	<?php else:?>
+	<div class="info whitebox rdcorners">
+		<p> Opps! Error</p>
+	</div>
+	<?php endif;?>
+</div>

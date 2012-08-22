@@ -1,0 +1,58 @@
+<?php
+$baseUrl = Zend_Controller_Front::getInstance()->getRequest()->getHttpHost();
+$url 	 = $this->url();
+$article = $this->article;
+$this->headLink()->appendStylesheet($this->baseUrl() .'/css/articles.css');
+$this->headLink()->appendStylesheet($this->baseUrl() .'/css/sharrre.css');
+$this->headScript()->appendFile(	'/js/jquery.sharrre.min.js' , 'text/javascript');
+$this->headScript()->appendFile(	'/js/jquery.sharrre.js' , 'text/javascript');
+//$this->headScript()->appendFile(	'http://static.ak.fbcdn.net/connect.php/js/FB.Share' , 'text/javascript');
+
+if ($article)
+{
+$this->headMeta()->setProperty('og:title', $article['article_title']);
+$this->headMeta()->setProperty('og:type', 'article');
+//$this->headMeta()->setProperty('og:description', 'description');
+}
+?>
+<?php if($article):?>
+	<div id="articles" class="contentpad mspacev fl">
+		<div id="article-topic" class="">
+			<header>
+			<div id="article-title" class="fl"><h2><?php echo $article['article_title'];?></h2>
+			<?php // if ($this->author) echo '<p class="author">by <span class="aurthor-name">'.$this->author .'</span><p>'; ?></div>
+			<div id="article-date" class="fl"><span>Posted</span>
+				<time class="month"><?php echo date('M', strtotime($article['article_date'])); ?></time>
+				<time class="day"><?php echo date('d', strtotime($article['article_date'])); ?></time>
+				<time class="year"><?php echo date('Y', strtotime($article['article_date'])); ?></time>
+			</div>
+			<div class="clr"></div>
+			</header>
+		</div>
+		<?php if ($this->edit_link): ?>
+		<p class="alignright nomargin"><a class="greenxbutton" href="<?php echo $this->edit_link;?>">Edit Article</a></p>
+		<?php endif;?>
+		<div id="article-content" class="content">
+		
+		<?php echo $article['article_content'];?>
+		</div>
+	</div>
+	<div id="sidepane" class="fl">
+		<div id="article-tags" class="section">
+			<h3>Tags</h3>
+			<p><i><?php echo $this->doTags($article['article_tags']);?></i></p>
+		</div>
+		<div id="share" class="section">
+			<h3>Share This</h3>
+			<div id="share-button" data-url="<?php echo $this->fullUrl;?>" data-text="<?php echo $article['article_title'];?>" data-title="share"></div>
+			<script type="text/javascript">initSharrre('share-button');</script>
+		</div>
+	</div>
+	<div class="clr"></div>
+<?php else:?>
+	<div class="contentpad lightgreybox">
+		<h3>Oops.. Error Fetching Article.</h3>
+		<p>We are sorry, it appears this page can not be found.</p>
+		<p>It might require you to have the necessary prividges</p>
+	</div>
+<?php endif;?>

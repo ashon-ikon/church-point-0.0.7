@@ -1,0 +1,52 @@
+<?php
+$this->headLink()->appendStylesheet($this->fullBaseUrl() .'/css/eventmonth.css');
+$this->headScript()->appendFile(	$this->fullBaseUrl() .'/js/jquery.eventmonth.js' , 'text/javascript');
+$calendar_obj		= Point_Object_Calendar::getInstance();
+$news_events		= $this->news_events;
+$view_date			= $this->view_date;
+$this_month_name	= date('F', $view_date);
+/* Navigation stuff */
+$prev_month_time	= strtotime('last month' ,$view_date);
+$prev_month_name	= date('F',$prev_month_time);
+$next_month_time	= strtotime('next month' ,$view_date);
+$next_month_name	= date('F',$next_month_time);
+/* Side bar stuff */
+$side_links			= getArrayVar($news_events, 'side_url', array());
+/* Set the view title */
+// =>HANDLED BY CONTROLLER!!
+?>
+<div id="event-wrapper">
+	<div class="event-content fl">
+		<div>
+			<a href="<?php echo $this->fullUrl(array('action' => 'month', 'ojo' => $prev_month_time), null, false); ?>" 
+			title="View <?php echo $prev_month_name; ?>"><span class="prev nav-btn"><?php echo $prev_month_name; ?></span></a>
+			<span class="rdcorners month-name greybox info">
+<?php 
+	echo '<strong>'.$this_month_name.'</strong>';
+?></span>
+			<a href="<?php echo $this->fullUrl(array('action' => 'month', 'ojo' => $next_month_time), null, false); ?>" 
+			title="View <?php echo $next_month_name; ?>"><span class="next nav-btn"><?php echo $next_month_name; ?></span></a>
+		</div>
+<?php
+/**
+ * Creating Calendar
+ * ==================
+ */
+echo $this->makeCalendar($news_events);
+?></div>
+	<div class="event-nav rdcorners lightgreybox fl contentpad"><div id="side-bar" class="rdcorners whitebox contentpad">
+		<h3 class="side-header">View by</h3>
+		<?php 
+		if (!empty($side_links) && is_array($side_links))
+		{
+			foreach ($side_links as $type => $side_link)
+			{
+				echo wrapHtml(
+					wrapHtml('','label', array('title' => $side_link['title'])).'<span>'.$side_link['name'].'</span>'
+				,'a', array('href' => $side_link['href'], 'title' => $side_link['title'], 'class' => 'side-link '. $type));
+			}
+		}
+		?>
+	</div></div>
+	<div class="clr"></div>
+</div>

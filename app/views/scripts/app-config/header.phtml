@@ -1,0 +1,7 @@
+<br /><br />
+<div id="view-content">
+	<p>View script for controller <b>AppConfig</b> and script/action name <b>header</b></p>
+	<?php if (is_array($this->app_name)) foreach ($this->app_name as $configs):?>
+		<p><?php echo $configs['configName'];?> <b><?php echo $configs['settings']; ?></b></p>
+	<?php endforeach;?>
+</div>

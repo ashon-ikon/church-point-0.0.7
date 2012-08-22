@@ -1,0 +1,37 @@
+<?php
+	$form	= $this->form;
+	
+	$event_id	= $this->event_id;
+	$this->headLink()->appendStylesheet($this->fullBaseUrl() .'/css/eventedit.css');
+	$this->headLink()->appendStylesheet($this->fullBaseUrl() .'/css/jquery.datepicker.css');
+	$this->headScript()->appendFile($this->fullBaseUrl() .'/js/jquery.validate.js' , 'text/javascript');
+	$this->headScript()->appendFile($this->fullBaseUrl() .'/js/jquery-ui-1.8.16.custom.min.js' , 'text/javascript');
+	$this->headScript()->appendFile($this->fullBaseUrl() .'/js/jquery-ui-1.8.16.datetimepicker.min.js' , 'text/javascript');
+	$this->headScript()->appendFile($this->fullBaseUrl() .'/js/jquery.eventedit.js' , 'text/javascript');
+?>
+<div id="event-edit" class="">
+	<?php if ($this->successmsg):?>
+	<p id="successhead" class="headerfont info rdcorners greenbox"><strong>Done!</strong></p>
+	<div class="info rdcorners whitebox">
+		<p> <?php echo $this->successmsg; ?> </p>
+		<p>View <a href="<?php echo $this->fullUrl(array('action' => 'events', 'e_id' => $event_id), null , false);?>" class="xbutton" title="View other events">Events</a>.</p>
+	</div>
+	<?php endif; ?>
+	<?php if ($this->errormsgs){ echo '<div class="error rdcorners">'; foreach($this->errormsgs as $err) { echo '<p>'.$err.'</p>';} echo '</div>';}?>
+	<?php if ($form):?>
+		<div class="contentpad greybox rdcorners">
+		<?php echo $form->getFormHeadTag(); ?>
+		<div class="info whitebox rdcorners">
+			<div class="form-field"><strong class="title"><em>*</em> Event Group:</strong><?php echo $form->group_id; ?></div>
+			<div class="form-field"><strong class="title"><em>*</em> Event Title:</strong><?php echo $form->event_title; ?></div>
+			<div class="form-field"><strong class="title"><em>*</em> Event Description:</strong><?php echo $form->event_desc; ?></div>
+			<div class="form-field"><strong class="title"><em>*</em> Event Start Date:</strong><?php echo $form->event_start_date; ?></div>
+			<div class="form-field"><strong class="title"><em>*</em> Event Stop Date:</strong><?php echo $form->event_stop_date; ?></div>
+			<div class="form-field"><strong class="title"> Event Image:</strong><?php echo $form->event_image; ?></div>
+			<div class="form-field"><strong class="title">&nbsp;</strong><?php echo  $form->submit; ?></div>
+			<small class="form-notice">fields marked <em>*</em> are required</small>
+		</div>
+		<?php echo $form->formClose(); ?>
+		</div>
+	<?php endif;?>
+</div>

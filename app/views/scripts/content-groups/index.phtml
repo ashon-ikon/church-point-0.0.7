@@ -1,0 +1,29 @@
+<?php
+	$allGroups	= $this->all_groups;
+	$this->headLink()->appendStylesheet($this->baseUrl() .'/css/contentgroups.css');
+	$this->headScript()->appendFile($this->baseUrl() .'/js/jquery.contentgroups.js' , 'text/javascript');
+?>
+<div class="contentpad info rdcorners lightgreybox">
+	<?php if ($this->errormsgs){ echo '<div class="error rdcorners">'; foreach($this->errormsgs as $err) { echo '<p>'.$err.'</p>';} echo '</div>';}?>
+	<?php if ($allGroups):?>
+<div class="rdcorners whitebox contentpad">
+<table id="groups-table">
+<thead class="toprow"><th width="55%">Group Name</th><th>Group Privacy</th><th>Group Members</th><th>&nbsp;</th></thead>
+<tbody>
+<?php if (is_array($allGroups))
+foreach ($allGroups as $group)
+{
+	$url 	= $this->url(array('action'=> 'viewgroup', 'g_id'=> $group['group_id']), false, null );
+	echo '<tr><td title="'. $group['group_desc'].'">'.
+						wrapHtml($group['group_name'], 'a', array('href' => $url, 'class'=> 'ilink', 'title' => 'View '. $group['group_name'])).'</td>' .
+		 '<td class="cg_access">'. $group['group_privacy_level'].'</td>' .
+		 '<td>'. $group['group_count'].'</td>' .
+		 '<td>' . wrapHtml('View', 'a', array('href' => $url, 'class'=> 'ilink', 'title' => 'View '. $group['group_name'])) . '</td></tr>';
+}
+echo '<tr  class="addgroup" ><td title="Add new group"><a href="'. $this->fullUrl(array('action' => 'addcontent-group'), null, false) .'">Add a new group</a></td><td colspan="3">&nbsp;</td></tr>'
+?>
+</tbody></table>
+
+</div>
+	<?php endif; ?>	 
+</div>

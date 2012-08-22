@@ -1,0 +1,74 @@
+<?php
+$speaker = $this->speaker;
+$edit_access = $this->edit_access;
+$this->headLink()->appendStylesheet($this->fullBaseUrl() .'/css/speakerprofile.css');
+?><div id="all-sermons" class="lightgreybox rdcorners contentpad info">
+<div class="whitebox rdcorners contentpad">
+<?php 
+if ($speaker)
+{
+?>
+<div id="speaker-profile">
+<div id="left" class="fl"><div id="img-div"><table><tr><td><img alt="<?php echo $speaker['speaker_name']; ?>'s picture" title="<?php echo $speaker['speaker_name']; ?>'s picture" src="<?php echo $speaker['speaker_image']; ?>" width="<?php echo $speaker['speaker_image_w']; ?>" height="<?php echo $speaker['speaker_image_h']; ?>" /></td></tr>
+	<tr><td><div id="admin-section"><?php 
+		if ($edit_access)
+		{
+			echo wrapHtml('Edit Profile','a', array('class' =>'edit-speaker', 'href'=>$speaker['speaker_edit_url'], 'title' => 'Edit ' . $speaker['author_lastname'] . '\'s profile'));
+			echo wrapHtml('Remove Profile','a', array('class' =>'remove-speaker', 'href'=>$speaker['speaker_remove_url'], 'title' => 'Remove ' . $speaker['author_lastname'] . '\'s profile'));
+		}
+		?></div></td></tr>
+		<tr><td><a href="<?php echo $this->fullUrl(array('action' => 'managespeakers'), null, false);?>" title="View speakers list" class="view-all-speakers">View All Speakers</a></td></tr>
+</table>
+	</div>
+	</div>
+	<div id="right" class="fl">
+		<div class="section-div">
+		<strong class="section-head">Personal Information</strong>
+		<table>
+			<tr><td width="20%">First Name:</td><td class="info-field"><strong><?php echo $speaker['author_firstname'];?></strong></td></tr>
+			<tr><td>Last Name:</td><td class="info-field"><strong><?php echo $speaker['author_lastname'];?></strong></td></tr>
+			<tr><td>Email:</td><td class="info-field"><?php echo ($speaker['author_email'] == ''? 'N/A' : wrapHtml($speaker['author_email'], 'a', array('href' => 'mailto:'.$speaker['author_email'])));?></td></tr>
+		</table>
+		</div>
+		<div class="section-div">
+		<strong class="section-head">Recent Activity</strong>
+		<p class="recent-act">Last sermon <span class="last-sermon"><?php if (array_key_exists('sermon_title', $speaker['last_sermon']))
+																					{
+																						echo wrapHtml($speaker['last_sermon']['sermon_title'], 
+																									'a', array('title'=> $speaker['last_sermon']['sermon_highlight'],
+																								    'href' => $speaker['last_sermon']['sermon_url']));
+																					}
+																					else
+																					{
+																						echo '<br /><strong><em>None</em></strong>';
+																					}
+																	?></span></p>
+		<p class="recent-act">sermons (<?php echo(empty($speaker['all_sermons']) ? 0 : count($speaker['all_sermons']));?>)<br /><?php
+			if (!empty($speaker['all_sermons']))
+			{
+				foreach($speaker['all_sermons'] as $sermon)
+				{
+					echo wrapHtml($sermon['sermon_title'], 
+								  'a', array('title'=> $sermon['sermon_highlight'],
+								  'href' => $sermon['sermon_url'],
+								  'class'=> 'sermon-list'));
+				}
+			}
+			else
+			{
+				echo '<strong><em>None</em></strong>';
+			}
+		?></p>
+		</div>
+	</div>
+	<div class="clr"></div>
+</div>
+<?php
+}else
+{
+	/*no sermons found */
+	echo '<h3>Speaker Not Found</h3><p>Oops! We couldn\'t locate requested speaker.</p>';
+
+}
+?></div>
+</div>

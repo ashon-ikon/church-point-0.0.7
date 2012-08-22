@@ -1,0 +1,17 @@
+.ctrpg h1 { text-align: left; font-size: 1.3em; text-shadow: 1 1px 0 #999;}
+#articles { width: 66%; background: transparent url('/../images/layout/article-header-top.png') top repeat-x;}
+#articles h2 { background: transparent; padding: 0; line-height: 1.2em;}
+#sidepane { width: 28%; margin: 0 1%;}
+#article-topic {  }
+#article-title { width: 90%;}
+#article-title h2 { margin-bottom: 0; font-size: 1.9em; color: #222; border-bottom: 1px solid #ddd; padding-bottom: 0.6em; padding-top: 1.5em;}
+#article-title p { margin: 0; padding: 0.3em 0 0; font-style: italic; color: #000;}
+#article-date { width: 8%; margin-top: -1.2em; height: 134px; background: transparent url('/../images/layout/article-date.png') top no-repeat;
+	color: #fff; padding: 1em 0 0; font-size: 100%; margin-bottom: -4em; text-shadow: 0px 1px 0 #444;}
+#article-date time, #article-date span { display: block; width: 100%; text-align: center; padding: 0;}
+#article-date .day { font-size: 1.6em; font-weight: bold;}
+#article-date .month { font-size: 0.9em;}
+#article-date .year { font-size: 0.9em;}
+.content { text-align: justify; padding: 1.2em 0.3em 1em; color: #444; font-size: 106%;}
+.validationerror { color: #f33; font-style: italic; font-size: 1em;}
+a.share { text-shadow: 0 1px 0 #444; padding: 1em;}

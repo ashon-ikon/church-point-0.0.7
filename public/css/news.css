@@ -1,0 +1,16 @@
+.ctrpg h1 { text-align: left; font-size: 1.3em; text-shadow: 1 1px 0 #999;}
+#news { width: 66%; background: transparent url('/../images/layout/article-header-top.png') top repeat-x;}
+#news h2 { background: transparent; padding: 0; line-height: 1.2em;}
+#sidepane { width: 28%; margin: 0 1%;}
+#news-topic {  }
+#news-title { width: 90%;}
+#news-title h2 { margin-bottom: 0; font-size: 1.9em; color: #36c;}
+#news-title p { margin: 0; padding: 0.3em 0 0; font-style: italic; color: #000;}
+#news-date { width: 8%; margin-top: -1.2em; height: 96px; background: transparent url('/../images/layout/news-date.png') top no-repeat;
+	color: #fff; padding: 0.5em 0 0; font-size: 100%;}
+#news-date time { display: block; width: 100%; text-align: center; padding: 0;}
+#news-date .day { font-size: 1.6em; font-weight: bold;}
+#news-date .month { font-size: 0.9em;}
+#news-date .year { font-size: 0.9em;}
+.content { text-align: justify; padding: 1.2em 0.3em 1em;}
+.validationerror { color: #f33; font-style: italic; font-size: 1em;}

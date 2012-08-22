@@ -1,0 +1,125 @@
+<?php
+$sermon 		= $this->sermon;
+$sermon_prev	= $this->sermon_prev;
+$sermon_next	= $this->sermon_next;
+$recent_sermons	= $this->recent_sermons;
+$this->headLink()->appendStylesheet($this->fullBaseUrl() .'/css/sermon.css');
+$this->headLink()->appendStylesheet($this->fullBaseUrl() .'/css/sharrre.css');
+$this->headScript()->appendFile(	'/js/jquery.sharrre.min.js' , 'text/javascript');
+$this->headScript()->appendFile(	'/js/jquery.sharrre.js' , 'text/javascript');
+//$this->headScript()->appendFile(	'http://static.ak.fbcdn.net/connect.php/js/FB.Share' , 'text/javascript');
+
+if ($sermon)
+{
+$this->headMeta()->setProperty('og:title', $sermon['sermon_title']);
+$this->headMeta()->setProperty('og:type', 'sermon, sermon');
+$this->headMeta()->setProperty('og:description', substr(remove_html_tags($sermon['sermon_content']), 0, 200) . ' ...');
+
+	/* Creating the Speaker Div */
+	$author_name 	= $sermon['sermon_author'] == '' ? $sermon['author_firstname']. ' ' . $sermon['author_lastname'] : $sermon['sermon_author'];
+	
+	$speaker_info	= $speaker_image = null;
+	$date			= wrapHtml(	date('F ', 	strtotime($sermon['sermon_date'])), 'time', array('class'	=> 'month'));
+	$date			.= wrapHtml(date('jS ', 	strtotime($sermon['sermon_date'])), 'time', array('class'	=> 'day'));
+	$date			.= wrapHtml(date('Y ', 	strtotime($sermon['sermon_date'])), 'time', array('class'	=> 'year'));
+	$date			.= ' '. wrapHtml(date('H:ia', strtotime($sermon['sermon_date'])), 'time', array('class'	=> 'time'));
+	$date			= wrapHtml($date, 'date');
+	$author_name_cont = wrapHtml(wrapHtml($author_name, 'span', array('class' => 'author-name')), 'a', array('class' => 'author-profile-link','href' => $sermon['sermon_author_view'], 'title'=>'View '.$author_name.'\'s profile')) ;
+	$speaker_info	= wrapHtml(wrapHtml($author_name_cont. '<br />' . $date  , 'span',array('class' => 'author')),
+														'td', array('class' 	=> 'ralign contentpad'));
+	$speaker_image	= (!isset($sermon['speaker_image']) ? '' : 
+	
+									wrapHtml(wrapHtml('','img', array('src' 		=> $sermon['speaker_image'], 
+									  					     'title'	=> $author_name, 
+															 'width'	=> $sermon['speaker_image_w'], 
+															 'height'	=> $sermon['speaker_image_h'],
+															 'alt' 		=> 'image of ' . $author_name), true)
+												, 'a', array('class' => 'author-profile-link','href' => $sermon['sermon_author_view'], 'title'=>'View '.$author_name.'\'s profile'))) ; 
+	$speaker_image	= wrapHtml($speaker_image, 'td', array('class' => 'author')); /* Enclose inside td tags */
+	$speaker_content= $speaker_info . $speaker_image;
+	$speaker_table	= wrapHtml(wrapHtml($speaker_content, 'tr'),'table');
+	$speaker_div	= wrapHtml($speaker_table, 'div', array('class' => 'speaker-info fr'));
+	$speaker_div	.= wrapHtml('', 'div', array('class' => 'clr'));
+
+}
+
+?>
+<?php if($sermon):?>
+	<div id="sermon" class="contentpad mspacev fl">
+		<div id="sermon-topic" class="">
+			<header class="sermon-topic-head">
+			<div id="sermon-title"><h2><?php echo $sermon['sermon_title'];?></h2>
+			<?php echo $speaker_div;?>
+			</header>
+		</div>
+		<?php if ($this->edit_link): ?>
+		<p class="edit-sermon alignright nomargin"><a class="greenxbutton" href="<?php echo $this->edit_link;?>">Edit sermon</a></p>
+		<?php endif;?>
+		<div id="sermon-content" class="content">
+		
+		<?php echo $sermon['sermon_content'];
+		
+		/* Add Inset */
+		$sermon_inset	= wrapHtml($sermon['sermon_highlight'], 'blockquote', array('class'=>'sermon-highlight'));
+		echo $sermon_inset;
+		?>
+		</div>
+		<div id="sermon-comment">
+			<?php
+				$comments	= array(); 
+			?>
+			<h3>Comments (<?php echo count($comments); ?>)</h3>
+			<div id="sermon-comment-form" class="rdcorners contentpad lightgreybox">
+			<div class="rdcorners contentpad whitebox">
+				<p class="notice comment">There are no comments yet. Be the first to write and share your views.</p>
+			</div>
+			</div>
+		</div>
+	</div>
+	<div id="sidepane" class="fl">
+		<div id="sermon-tags" class="section">
+		</div>
+		<div id="share" class="section">
+			<h3>Share This</h3>
+			<div id="share-button-r" data-url="<?php echo $this->fullUrl;?>" data-text="<?php echo $sermon['sermon_title'];?>" data-title="share"></div>
+			<script type="text/javascript">initSharrre('share-button-r');</script>
+		</div>
+		<div class="clr"></div>
+		<div id="other-media" class="section">
+			<div id="audio-section">
+				<h3>Audio</h3>
+				<p>Audio not available yet</p>
+			</div>
+			<div id="video-section">
+				<h3>Video</h3>
+				<p>video not available yet</p>
+			</div>
+		</div>
+		<div id="sermon-calendar" class="section">
+			<h3 class="recent-s">Recent Sermons</h3>
+<!--
+			<div class="greybox rdcorners contentpad sermon-nav"><?php //echo $sermon_prev ? $sermon_prev : 'None'; ?><span class="fr"><?php //echo $sermon_next ? $sermon_next : 'None'; ?></span></div> 
+-->
+			<div>
+			<?php if ($recent_sermons):?>
+			<table><?php foreach ($recent_sermons as $recent_sermon) 
+			echo wrapHtml(
+					wrapHtml(
+						wrapHtml($recent_sermon['sermon_title'],'a', array(	'href' =>$recent_sermon['sermon_url'], 
+																			'title' => $recent_sermon['sermon_highlight'])),
+						'td', array('class'=>'recent')),
+					'tr');?></table>
+			<?php endif;?>
+			<a href="<?php echo $this->fullUrl(array('action' =>'index'));?>" title="Go to sermons list" class="sermonlist rdcorners xbutton">All Sermons</a></div>
+			<h4>Browse by calendar</h4>
+			<?php echo $this->calendar;?>
+		</div>
+		
+	</div>
+	<div class="clr"></div>
+<?php else:?>
+	<div class="contentpad lightgreybox">
+		<h3>Oops.. Error Fetching Sermon.</h3>
+		<p>We are sorry, it appears this page can not be found.</p>
+	</div>
+<?php endif;?>

@@ -1,0 +1,35 @@
+#mdl { padding-top:14em; }
+.ctrpg h1 { text-align: left; font-size: 180%; text-shadow: 1 1px 0 #999;}
+.content { text-align: justify; padding: 1.2em 0.3em 1em;}
+.weekurl { display: block;}
+.weekurl:link { text-decoration: none; padding: 0;}
+.weekurl:hover { font-weight: bold; color: #44f; font-size: 110%;}
+.event-content {width: 68%;}
+.event-nav {width: 28%; margin: 1%;}
+.event-day { display: block; background: #df4433; /*#7dd3ff;*/ border: 1px solid #5dc1cc; }
+.event-day:link  { color: #fff; text-decoration: none; font-size: 105%; font-weight: bold;}
+.month-name { text-align: center; width: 66%; display: inline-block; font-size: 200%; font-weight: bold;}
+.nav-btn { width: 10%; display: inline-block; text-align: center; border: 1px solid #ddd; padding:0.5em 0.2em;}
+.nav-btn:link, .nav-btn:hover { text-decoration: none; }
+#top-events table { width: 100%;}
+#top-events table tr {padding: 0; border-bottom: 1px dotted #dfdfdf; text-shadow: 0 1px 0 #fff; moz-box-shadow: 0 1px 0 #eff3f6; -webkit-box-shadow: 0 1px 0 #eff3f6; font-style:italic;}
+#top-events .top-event-month, #top-events .top-event-link {display:block; padding: 0.5em;}
+#top-events .top-event-month {font-size: 1.5em; font-weight: bold; font-style: normal; color: #999;}
+#top-events .top-event-link:link, #top-events .top-event-link:visited {color: #3080D8;}
+#top-events .top-event-month:hover{ }
+#top-events .top-event-link:hover {color: #555; background: #C3FFF9; }
+.event-time { font-style: normal; color: #777;}
+.side-link {margin-bottom:0.7em; display: block; padding: 0; text-indent: 30px; vertical-align: middle;
+	background:transparent url('../images/layout/cal-iconset.png') no-repeat; width: 16px; height:16px; }
+.side-link:hover{ background-position:0px -16px;}
+#side-bar .list{ background-position: 0x 0px; }
+#side-bar .list:hover{ background-position: 0px -16px; }
+#side-bar .month{ background-position: -16px 0px; }
+#side-bar .month:hover{ background-position: -16px -16px; }
+#side-bar .week{ background-position: -32px 0px; }
+#side-bar .week:hover{ background-position: -32px -16px; }
+#side-bar .day{ background-position: -48px 0px; }
+#side-bar .day:hover{ background-position: -48px -16px; }
+#side-bar a{ margin-left: 1em; }
+.side-link span{ text-shadow: none; font-size: 120%; color: #aaa;}
+.side-link span:hover{  color: #333;}

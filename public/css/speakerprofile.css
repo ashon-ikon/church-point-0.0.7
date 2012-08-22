@@ -1,0 +1,14 @@
+#mdl .ctrpg h1 { text-align: left; font-size: 1.3em;}
+a:hover	{ color: #222;}
+#right a:hover{ text-decoration: underline; }
+#speaker-profile #left, #speaker-profile #right { width: 26%;}
+#speaker-profile #right { Width: 70%; padding-left: 2em;}
+.section-div { margin: 1em 0;}
+#img-div { }
+#img-div img {margin:0 auto; border: 1px solid #ccc; padding: 0.3em; display:block;}
+.info-field { color: #669; text-shadow:none;}
+.recent-act { border-top: 1px solid #DDD; padding: 0.6em;}
+.sermon-list { display: block; padding: 0.5em 0; }
+#img-div a { display: block; padding: 0.5em;}
+#img-div a:hover { background: #C3FFF9; color: #222;}
+.view-all-speakers { border-top: 1px solid #AAA; font-size: 120%; font-weight: bold;}

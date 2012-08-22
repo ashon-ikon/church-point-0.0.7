@@ -1,0 +1,55 @@
+<?php
+$request = Zend_Controller_Front::getInstance()->getRequest();
+$baseUrl = $request->getScheme() .'://' . $request->getHttpHost();
+$url 	 = $this->url();
+$sermons = $this->sermons;
+$edit_access = $this->edit_access;
+$this->headLink()->appendStylesheet($this->fullBaseUrl() .'/css/allsermons.css');
+?><div id="all-sermons" class="lightgreybox rdcorners contentpad info">
+<div class="whitebox rdcorners contentpad">
+<?php if(!empty($this->errormsgs)): ?>
+<div class="warning rdcorners contentpad info centeralign"> 
+<?php  foreach ($this->errormsgs as $errors) echo '<p>',$errors,'</p>';?>
+</div>
+<?php endif; ?>
+
+<?php if ($this->successmsg):?>
+<p id="successhead" class="headerfont info rdcorners greenbox"><strong>Done!</strong></p>
+<div class="info rdcorners whitebox">
+	<p> <?php echo $this->successmsg; ?> </p>
+</div>
+<?php endif; ?>
+<?php 
+if ($sermons)
+{
+	echo '<div class="sermons-head bl"><span class="head secti">Title</span>' .
+			'<span class="head secsp bl">Speaker</span>' .
+			'<span class="head secda">Date</span>' .
+			'<span class="head secme">Downloads</span>' .
+			'</div>';
+	foreach($sermons as  $sermon)
+	{
+		$sermon_author 	= $sermon['author_firstname'] . ' ' . $sermon['author_lastname'];
+		$sermon_url 	= $sermon['sermon_url'];
+		echo '<div class="serin"><span class="secti"><a title="'.$sermon['sermon_highlight'].'" href="'. $sermon_url .'">'. $sermon['sermon_title'] .'</a></span>' .
+				'<span class="secsp">'. ($sermon_author == ' ' ? $sermon['sermon_author'] : $sermon_author) .'</span>' .
+				'<span class="secda">'. date('D jS M g:i a', strtotime($sermon['sermon_date']))  .'</span> ' .
+				'<span class="secme"><a href="#" title="No audio available">Audio</a> | <a href="#"  title="No video available">Video</a></span>';
+		if ($this->edit_access)
+			echo ' &nbsp;&nbsp;&nbsp;<span>'. wrapHtml('Remove', 'a', array('href' => $sermon['sermon_remove_url'],
+														  'title' => 'Remove '. $sermon['sermon_title'] )).'</span>' ;
+		
+		echo '</div>';	
+	}	
+	
+	
+}else
+{
+	/*no sermons found */
+	echo '<h3>Empty Sermons Storage</h3><p>No Sermons were found.</p>';
+
+}
+	if ($edit_access)
+		echo '<div  class="addsermon serin" ><span title="Add new sermon"><a href="'. $this->fullUrl(array('action' => 'addsermon'), null, false) .'"><span class="plusbtn"></span>Add a new sermon</a></span></div>';
+?></div>
+</div>

@@ -1,0 +1,57 @@
+<?php
+$this->headLink()->appendStylesheet($this->fullBaseUrl() .'/css/eventmonth.css');
+//$this->headLink()->appendStylesheet($this->fullBaseUrl() .'/css/sharrre.css');
+//$this->headScript()->appendFile(	$this->fullBaseUrl() .'/js/jquery.sharrre-1.2.0.min.js' , 'text/javascript');
+//$this->headScript()->appendFile(	$this->fullBaseUrl() .'/js/jquery.sharrre.js' , 'text/javascript');
+$this->headScript()->appendFile(	$this->fullBaseUrl() .'/js/jquery.eventmonth.js' , 'text/javascript');
+
+$calendar			= $this->calendar;
+$calendar_name		= $this->calendar_name;
+$top_events			= $this->top_events;
+
+$prev_month			= $this->prev_month;
+$prev_month_name 	= getArrayVar($prev_month, 'month', null);
+$prev_month_link 	= getArrayVar($prev_month, 'link', null);
+
+$next_month			= $this->next_month;
+$next_month_name 	= getArrayVar($next_month, 'month', null);
+$next_month_link 	= getArrayVar($next_month, 'link', null);
+?>
+<div id="event-wrapper">
+	<div class="event-content fl"><div><a href="<?php echo $prev_month_link; ?>" title="<?php echo $prev_month_name; ?>"><span class="nav-btn">&lt;</span></a><span class="rdcorners month-name greybox info"><?php 
+	echo $calendar_name;
+	?></span><a href="<?php echo $next_month_link; ?>" title="<?php echo $next_month_name; ?>"><span class="nav-btn">&gt;</span></a></div><?php
+	echo $calendar;
+	 ?></div>
+	<div class="event-nav rdcorners lightgreybox fl contentpad"><div class="rdcorners whitebox contentpad">
+		<h3 class="side-header">Events Navigator</h3>
+		<?php if ($top_events):?>
+		<div id="top-events">
+		<table>
+		<?php
+			$last_event_month	= null;
+			foreach ($top_events as $top_event)
+			{	
+				/* Add month to the events*/
+				if ($last_event_month != date('F',strtotime($top_event['event_start_date']))) /* While month has changed */
+				{
+					$last_event_month = date('F',strtotime($top_event['event_start_date']));
+					echo '<tr>',wrapHtml($last_event_month == date('F') ? 'This month' : $last_event_month, 
+										 'td', 
+										 array('class' => 'top-event-month')),'</tr>';
+				}
+				
+				echo '<tr>',wrapHtml(wrapHtml('<span class="event-time">'.date('jS h:m a',strtotime($top_event['event_start_date'])). '</span> ' 
+												. $top_event['event_title'], 'a', array('href' 	=> $top_event['url'],
+																						 'class'	=> 'top-event-link',
+																						 'title'	=> $top_event['event_desc']
+																					  )),'td', array('class' =>'top-event')
+										), '</tr>';
+			}	 
+		?>
+		</table>
+		</div>
+		<?php endif; ?>
+	</div></div>
+	<div class="clr"></div>
+</div>

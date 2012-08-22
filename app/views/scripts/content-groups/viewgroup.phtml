@@ -1,0 +1,30 @@
+<?php
+$baseUrl 		= $this->fullUrl();
+$content_group 	= $this->content_group;
+
+$this->headLink()->appendStylesheet($this->fullBaseUrl() .'/css/contentgroup.css');
+?><div id="content-group" class="lightgreybox rdcorners contentpad info">
+<div class="whitebox rdcorners contentpad">
+<?php if(!empty($this->errormsgs)): ?>
+<div class="warning rdcorners contentpad info centeralign"> 
+<?php  foreach ($this->errormsgs as $errors) echo '<p>',$errors,'</p>';?>
+</div>
+<?php endif; ?>
+<?php if ($this->successmsg):?>
+<p id="successhead" class="headerfont info rdcorners greenbox"><strong>Done!</strong></p>
+<div class="info rdcorners whitebox">
+	<p> <?php echo $this->successmsg; ?> </p>
+</div>
+<?php endif; ?>
+<?php 
+if ($content_group)
+{
+	
+}else
+{
+	/*Content Group info not found */
+	echo '<h3>Content Group Not Found</h3><p>It appears the intended content group info could not be retrieved.</p>';
+}
+
+?></div>
+</div>

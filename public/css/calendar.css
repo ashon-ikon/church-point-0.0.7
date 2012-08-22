@@ -1,0 +1,9 @@
+.wkrow { display: block; margin: 0 auto; width: 100%;}
+.wdy, .wkn { display: table-cell; border:1px solid #e7e7e7; margin: 0.1em; width:10%; padding: 0.5%; text-align: center;}
+.wdy{ border:1px solid #fff; cursor:pointer; color: #222;}
+.wdy:hover{ background: #ccc;}
+.wkn { background: #f2f2f2; font-weight: bold; font-style: italic}
+.hd{ }
+.wktitle {display: table-header-group; /*border-bottom: 2px solid #888;*/}
+.calendar { margin: 0 auto; padding: 0.2em; border: 1px solid #eee; width:100%;}
+.tday {border: 1px solid #4f5; background: #dfd; font-weight: bold; font-style: italic;}

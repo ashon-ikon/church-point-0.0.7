@@ -1,0 +1,59 @@
+<div id="view-content">
+	<?php
+		$form = $this->form;
+		$this->headLink()->appendStylesheet($this->baseUrl() .'/css/register.css');
+		$this->headScript()->appendFile($this->baseUrl() .'/js/jquery.validate.js' , 'text/javascript');
+		$this->headScript()->appendFile($this->baseUrl() .'/js/jquery.registration.js' , 'text/javascript');
+		$baseUrl = $this->baseUrl() . '/';
+	?>
+	<div><img src="<?php echo $this->baseUrl;?>/images/banner01.jpg" width="100%" height="100" /></div>
+	<div class="rdcorners greybox contentpad mspacev">
+	<?php if ($this->successmsg):?>
+	<p id="successhead" class="headerfont info rdcorners greenbox"><strong>Congratulations!</strong></p>
+	<div class="info rdcorners whitebox">
+		<p> <?php echo $this->successmsg; ?> </p>
+		<p>A message has been sent to your email. Please check and act as required</p>
+		<p>Please note that if your account is note verified in more than 2weeks you will have to re-register your account again.</p>
+	</div>
+	<?php endif; ?>
+	<?php if($form):  ?>
+		<p class="info rdcorners whitebox ajustify">
+		Please enter your full name, email address and password to create an account,
+		and other information.
+		<br /> 
+		<br />
+		<strong>Please complete the form below. Mandatory fields are marked *</strong>
+		</p>
+		
+		<div class="info rdcorners whitebox ajustify">
+		<?php if ($this->errors){ echo '<div class="error rdcorners">'; foreach($this->errors as $err) { echo '<p>'.$err.'</p>';} echo '</div>';}?>
+		<?php echo $form->getFormHeadTag();?>
+		<table  class="mdlalign"><tbody>
+			<?php 
+				echo '<tr><td colspan="2"><div class="fieldinfo rdcorners fontblack info greybox">Your Name(s) and email</div></td></tr>';
+				echo $form->firstname;
+				echo $form->lastname;
+				echo '<tr><td width="35%"><label for="birthday">* Gender: </label></td><td>', $form->gender, '</td></tr>';
+				echo '<tr><td width="35%"><label for="birthday">* Date of Birth: </label></td><td>', $form->day, $form->month, $form->year, '<div id="dateerror"></div></td></tr>';
+				echo '<tr><td colspan="2"><div class="fieldinfo rdcorners fontblack info greybox">Create your membership credentials</div></td></tr>';
+				echo $form->email;
+				echo $form->password;
+				echo $form->password2;
+				echo $form->mobile;
+				echo '<tr><td colspan="2"><div class="fieldinfo rdcorners fontblack info greybox">Your contact address</div></td></tr>';				
+				echo $form->address1;
+				echo $form->address2;
+				echo $form->town;
+				echo $form->zip;
+				echo $form->country;
+				echo $form->state;
+				echo $form->hidden1;
+				echo $form->submit;
+			/*if($form) $elements = $form->getElements(); 
+			 if(!empty($elements)) foreach($elements as $element){ echo $element ;}*/?>
+		</tbody></table>
+		<?php if (!empty($form)) echo $form->formClose();?>
+		<?php endif; ?>
+		</div>
+	</div>
+</div>

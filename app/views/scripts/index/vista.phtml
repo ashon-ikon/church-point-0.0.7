@@ -1,0 +1,45 @@
+<?php
+	$this->headLink()->appendStylesheet($this->fullBaseUrl() .'/css/vistaview.css');
+//	$this->headScript()->appendFile($this->fullBaseUrl() .'/js/jquery.validate.js' , 'text/javascript');
+?>
+<div class="rdcorners contentpad lightgreybox">
+<div class="whitebox contentpad rdcorners cf">
+<div class="wdow word fl">
+	<strong class="heading">Sermons</strong>
+	<p class="caption" title="Get the latest sermons">
+	<a href="<?php echo $this->fullUrl(array('controller'=>'word', 'action'=>'index'), null, false);?>" title="Get the latest sermons">Read and listen to previous sermons <br /><span class="fwd"></span></a>
+	</p>
+	<p class="options"><a href="#">Recent</a> | <a href="#">List</a></p>
+</div>
+<div class="wdow events fl clearfix">
+	<strong class="heading">Events &amp; Activities</strong>
+	<p class="caption" title="Get the latest events">
+	<a href="<?php echo $this->fullUrl(array('controller'=>'events', 'action'=>'events'), null, false);?>" title="Events and activies">Check your upcoming events<br /><span class="fwd"></span></a>
+	</p>
+	<p class="options"><a href="#">Recent</a> | <a href="#">List</a></p>
+</div>
+<div class="wdow devotion fl ">
+	<strong class="heading">Devotion &amp; Bible Study</strong>
+	<p class="caption" title="Study the Word">
+	<a href="<?php echo $this->fullUrl(array('controller'=>'biblestudy', 'action'=>'index'), null, false);?>" title="Study the Word">Study God's word<br /><span class="fwd"></span></a>
+	</p>
+	<p class="options"><a href="#">Recent</a> | <a href="#">List</a></p>
+</div>
+<div class="wdow articles fl"><strong class="heading">News and Articles</strong>
+	<p class="caption" title="Get the news and read the latest community articles">
+	<a href="<?php echo $this->fullUrl(array('controller'=>'articles', 'action'=>'index'), null, false);?>" title="Get the news and read the latest community articles">Read news and community articles<br /><span class="fwd"></span></a>
+	</p>
+	<p class="options"><a href="<?php echo $this->fullUrl(array('controller'=>'articles', 'action'=>'allarticles'), null, false);?>">Articles</a> |
+	<a href="<?php echo $this->fullUrl(array('controller'=>'articles', 'action'=>'allnews'), null, false);?>">News</a></p>
+</div>
+<div class="wdow cgroups fl clearfix"><strong class="heading">Care Groups</strong>
+	<p class="caption" title="Catch-up with info in your care groups">
+	<a href="<?php echo $this->fullUrl(array('controller'=>'c-groups', 'action'=>'index'), null, false);?>" title="Catch-up with info in your care groups">Get updates from care groups you belong to<br /><span class="fwd"></span></a>
+	</p>
+	<p class="options"><a href="#">Recent</a> | <a href="#">List</a></p>
+</div>
+<div class="wdow fl"><strong class="heading">Library Point</strong></div>
+<?php 
+?>
+</div>
+</div>

@@ -1,0 +1,23 @@
+<div id="view-content">
+	<?php
+		$errormsg = $this->errormsg;
+		$successmsg = $this->successmsg;
+//		$this->headScript()->appendFile($this->baseUrl() .'/js/jquery.registration.js' , 'text/javascript');
+		$baseUrl = $this->baseUrl() . '/';
+	?>
+	<div class="rdcorners greybox contentpad mspacev">
+	<?php if ($successmsg):?>
+	<p id="successhead" class="headerfont info rdcorners greenbox"><strong>Welcome to the online community!</strong></p>
+	<div class="info rdcorners whitebox">
+		<p> <?php echo $successmsg; ?> </p>
+	</div>
+	<?php elseif ($errormsg): ?>
+
+	<p id="successhead" class="headerfont info rdcorners milderror"><strong>Something went wrong!</strong></p>
+	<div class="info rdcorners whitebox">
+		<p> <?php echo $errormsg; ?> </p>
+	</div>
+	<?php endif; ?>
+		</div>
+	</div>
+</div>

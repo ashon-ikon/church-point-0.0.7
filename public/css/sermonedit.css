@@ -1,0 +1,33 @@
+.ctrpg h1 { text-align: left; font-size: 1.3em; text-shadow: 1 1px 0 #999;}
+#sermon-preview { width: 66%; background: transparent url('/../images/layout/sermon-header-top.png') top repeat-x;}
+#sermon-preview h2 { background: transparent; padding: 0;}
+#sidepane { width: 28%; margin: 0 1%;}
+#prev { margin: 2em 0;}
+#sermon-topic-preview {  }
+#sermon-title-preview { width: 90%;}
+#sermon-title-preview h2 { margin-bottom: 0; font-size: 1.9em; color: #36c; line-height: 2.0em;}
+#sermon-title-preview p { margin: 0; padding: 0.3em 0 0; font-style: italic; color: #000;}
+#sermon-date-preview { width: 8%; margin-top: -1.2em; height: 96px; background: transparent url('/../images/layout/sermon-date.png') top no-repeat;
+	color: #fff; padding: 0.5em 0 0; font-size: 100%;}
+#sermon-date-preview time { display: block; width: 100%; text-align: center; padding: 0;}
+#sermon-date-preview .day { font-size: 1.6em; font-weight: bold;}
+#sermon-date-preview .month { font-size: 0.9em;}
+#sermon-date-preview .year { font-size: 0.9em;}
+.content { text-align: justify; padding: 1.2em 0.3em 1em;}
+.title { width: 13em; display: inline-block; font-size: 1.1em;}
+.form-field { margin: 0.8em 0.5em; background: #fff; padding: 0.3em; }
+.form-field:hover { background: #efefef;}
+.tabsholder { display: inline-block; margin: 0 auto; width: 90%;}
+.button { height: 3em;}
+
+#sermon { width: 66%; background: transparent url('/../images/layout/sermon-header-top.png') top repeat-x;}
+#sermon h2 { background: transparent; padding: 0;}
+#sidepane { width: 28%; margin: 0 1%;}
+#sermon-topic {  }
+#sermon-title {}
+#sermon-title h2 { margin-bottom: 0; font-size: 1.9em; color: #36c;}
+#sermon-title p { margin: 0; padding: 0.3em 0 0; font-style: italic; color: #000;}
+.content { text-align: justify; padding: 1.2em 0.3em 1em;}
+.speaker-info { font-style: italic; }
+.speaker-info time { color: #aaa; }
+.author-name { color: #999; font-weight: bold;}

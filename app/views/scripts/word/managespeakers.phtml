@@ -1,0 +1,57 @@
+<?php
+$url 	 = $this->url();
+$sermon_authors = $this->all_authors;
+$edit_access = $this->edit_access;
+$this->headLink()->appendStylesheet($this->fullBaseUrl() .'/css/allsermonauthors.css');
+?><div id="all-sermon-authors" class="lightgreybox rdcorners contentpad info">
+<div class="whitebox rdcorners contentpad">
+<?php if(!empty($this->errormsgs)): ?>
+<div class="warning rdcorners contentpad info centeralign"> 
+<?php  foreach ($this->errormsgs as $errors) echo '<p>',$errors,'</p>';?>
+</div>
+<?php endif; ?>
+
+<?php if ($this->successmsg):?>
+<p id="successhead" class="headerfont info rdcorners greenbox"><strong>Done!</strong></p>
+<div class="info rdcorners whitebox">
+	<p> <?php echo $this->successmsg; ?> </p>
+</div>
+<?php endif; ?>
+<?php 
+if ($sermon_authors)
+{
+	echo '<table><tr class="sermon-authors-head bl">' .
+			'<td class="head secim">&nbsp;</td>' .
+			'<td class="head secna">Speaker Name</td>' .
+			'<td class="head secem">Other Info</td>' .
+			'<td class="head secad"></td>' .
+			'</tr>';
+	foreach($sermon_authors as  $sermon_author)
+	{
+//		echo print_r($sermon_authors, true);
+		echo '<tr class="authrw">';
+		$author 	= $sermon_author['author_firstname'] . ' ' . $sermon_author['author_lastname'];
+
+		echo '<td>'.wrapHtml('<img src="'.$sermon_author['speaker_image'].'" height="'.$sermon_author['speaker_image_h'].'" width="'.$sermon_author['speaker_image_w'].'" title="'.$author.'" />', 'a', array('href' => $sermon_author['speaker_view_url'], 'title' => 'View ' . $author)).'</td>';
+		echo '<td>'.wrapHtml( $author, 'a', array('href' => $sermon_author['speaker_view_url'], 'title' => 'View ' . $author)) .'</td>';
+		echo '<td>', $sermon_author['author_email'], '</td>';
+		echo '<td>', wrapHtml('View', 'a', array('href' => $sermon_author['speaker_view_url'], 'title' => 'View ' . $author)) .
+			(($edit_access) ? (' | ' . wrapHtml('Remove', 'a', array('href' => $sermon_author['speaker_remove_url'], 'title' => 'Remove ' . $author)) ):'')
+			. '</td>';
+
+		echo '</tr>';	
+	}	
+	
+	echo '</table>';
+}else
+{
+	/*no sermon_authors found */
+	echo '<h3>Sermon Speakers</h3><p>No Sermon speakers were found.</p>';
+
+}
+	if ($edit_access)
+		echo '<div  class="addsermon-speaker serin" ><span title="Add new sermon">' .
+				'		<a href="'. $this->fullUrl(array('action' => 'addspeaker'), null, false) .'"><span class="plusbtn"></span>Add a new speaker</a>' .
+				'</span></div>';
+?></div>
+</div>

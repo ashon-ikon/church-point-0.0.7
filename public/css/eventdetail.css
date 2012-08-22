@@ -1,0 +1,8 @@
+.ctrpg h1 { text-align: left; font-size: 1.3em; text-shadow: 1 1px 0 #999;}
+.content { text-align: justify; padding: 1.2em 0.3em 1em;}
+#event-detail { width: 70%;}
+#event-side { width: 26%;}
+.event-from, .event-to { font-weight: bold; font-style: italic; padding: 0 0.6em;}
+.event-time { }
+.event-image { float: right;}
+.event-group { font-style: italic; font-weight: bold;}

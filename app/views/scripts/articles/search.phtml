@@ -1,0 +1,26 @@
+<?php 
+	$form 		= $this->form;
+	$article 	= $this->article;
+	$this->headLink()->appendStylesheet($this->baseUrl() .'/css/articleedit.css');
+	$this->headScript()->appendFile($this->baseUrl() .'/js/jquery.validate.js' , 'text/javascript');
+	$this->headScript()->appendFile($this->baseUrl() .'/js/jquery.articleedit.js' , 'text/javascript');
+?>
+<div id="article-edit" class="">
+	<?php if ($form):?>
+		<div class="contentpad greybox rdcorners">
+		<?php echo $form->getFormHeadTag(); ?>
+		<div class="info whitebox rdcorners">
+			<div class="form-field"><strong class="title">* Title:</strong><?php echo $form->title; ?></div>
+			<div class="form-field"><strong class="title">Brief Description:</strong><?php echo $form->title_desc; ?></div>
+			<div class="form-field"><strong class="title">*Aricle Content:</strong><div class="contentpad info"><?php echo $this->article_editor; ?></div></div>
+			<div class="form-field"><strong class="title">*Tags</strong><?php echo $form->tags; ?></div>
+			<div class="form-field"><strong class="title">&nbsp;</strong><?php echo $form->submit; ?></div>
+		</div>
+		<?php echo $form->formClose(); ?>
+		</div>	
+	<?php else:?>
+	<div class="info whitebox rdcorners">
+		<p> Search ...</p>
+	</div>
+	<?php endif;?>
+</div>

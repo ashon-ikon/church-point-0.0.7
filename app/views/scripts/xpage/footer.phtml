@@ -1,0 +1,51 @@
+<?php
+	$baseUrl = $this->fullBaseUrl(); 
+?>
+	<div>
+		<ul>
+			<li><h4>Quick Links</h4>
+				<ul>
+					<li><a href="<?php echo $baseUrl, $this->url(array(), null, true); ?>" title="Go home">Home</a></li>
+					<li><a href="<?php echo $baseUrl, $this->url(array('controller'=>'word','action'=>'index'),null, false); ?>" title="Go to Sermons">Sermons</a></li>
+					<li><a href="<?php echo $baseUrl, $this->url(array('controller'=>'articles','action'=>'articles'),null, false); ?>" title="Read latest articles">Articles</a></li>
+					<li><a href="<?php echo $baseUrl, $this->url(array('controller'=>'articles','action'=>'news'),null, false); ?>" title="Community sharing">News and Community Sharing</a></li>
+					<li><a href="<?php echo $baseUrl, $this->url(array('controller'=>'events','action'=>'index'),null, false); ?>" title="Events">Events</a></li>
+				</ul>
+			</li>
+			<li>
+				<h4>About Us</h4>
+				<ul>
+					<li><a href="<?php echo $baseUrl, $this->url(array('controller'=>'about'),null, false);?>">Brief History</a></li>
+					<li><a href="<?php echo $baseUrl, $this->url(array('controller'=>'about', 'action'=>'location'),null, false);?>">Our Location</a></li>
+					<li><a href="<?php echo $baseUrl, $this->url(array('controller'=>'about', 'action'=>'policy'),null, false);?>">Policy</a></li>
+					<li><a href="<?php echo $baseUrl, $this->url(array('controller'=>'about', 'action'=>'workers'),null, false);?>">Meet the Pastoral Staff</a></li>
+				</ul>
+			</li>
+			<li>
+				<h4>Visit Us On</h4>
+				<ul>
+					<li><a href="<?php echo $this->social_links['facebook'];?>" target="_blank" title="Like us on Facebook">Facebook</a>
+					<div class="fb-like" data-href="http://www.facebook.com/pages/Permai-Chinese-Methodist-Church/33215899949" data-send="false" data-layout="standard" data-width="100" data-show-faces="true"></div>
+					</li>
+					<li><a href="<?php echo $this->social_links['twitter'];?>" target="_blank">Twitter</a></li>
+					<li><a href="<?php echo $this->social_links['youtube'];?>" target="_blank">YouTube</a></li>
+				</ul>
+			</li>
+		</ul>
+		<br class="clr" />
+		<span ></span>
+	</div>
+<!-- Start of StatCounter Code for Default Guide -->
+<script type="text/javascript">
+var sc_project=7861723; 
+var sc_invisible=1; 
+var sc_security="9b9ec6d8"; 
+</script>
+<script type="text/javascript"
+src="http://www.statcounter.com/counter/counter_xhtml.js"></script>
+<noscript><div class="statcounter"><a title="tumblr counter"
+href="http://statcounter.com/tumblr/"
+class="statcounter"><img class="statcounter"
+src="http://c.statcounter.com/7861723/0/9b9ec6d8/1/"
+alt="tumblr counter" /></a></div></noscript>
+<!-- End of StatCounter Code for Default Guide -->

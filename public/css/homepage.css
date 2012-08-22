@@ -1,0 +1,51 @@
+#mdl h2 { border-radius: 0; -moz-border-radius: 0; -webkit-border-radius: 0; background: none;}
+#mdl #topslider .section{ border: none;}
+#mdl #topslider #imgslider-top{ width: 900px; padding: 0; margin: 0 auto; height: 250px;
+	/*background: transparent url('../images/layout/slider-frame2_.png') no-repeat;*/}
+#mdl #topslider #imgslider-top .slidercontainer{ width: 820px; padding: 0; margin: 0 auto; height: 212px;}
+#main h2 { background: transparent;  padding:0; line-height: 1.6em;}
+#main h3 { text-transform: none; border: none; padding-bottom: 0; margin-bottom: 0; font-size: 130%;  color: #3080C8; font-style: normal;
+	letter-spacing: 0.1em; font-weight: normal;}
+#main h3 .title-link:link, #main h3 .title-link:visited { color: #3080C8; }
+#main h3 .title-link:hover { color: #60B0D8; }
+#main #title h4 { text-transform: none; border: none; font-size: 0.9em;}
+#main #title span { font-size: 1.2em;}
+#main #news-title span { border-bottom:#cdcdcd solid 2px; }
+#main .article-title:link, #main .article-title:visited { color: #3080D8;}
+#main .article-title:hover { color: #60B0D8;}
+#ss2 .section h2 { color : #fff; text-shadow: 1px 1px 3px #000; font-size: 1.5em;}
+#ss2 #news-title a:link, #ss2 .news-title:link, #ss2 #news-title a:visited, #main .news-title:visited { color: #3080D8;}
+#ss2 #news-title a:hover, #ss2 .news-title:hover { color: #60B0D8;}
+.speaker-info { font-style: italic; margin-bottom: -0.7em;}
+.speaker-info time { color: #aaa; }
+.author { vertical-align: middle;}
+.author img { margin: 0.3em 0.5em; padding: 0.2em; border: #CFCFCF solid 1px; display:inline-block; right:0;}
+.author-name { color: #999; font-weight: bold;}
+
+.more { text-align: right; padding-right: 3em; font-style: italic;}
+.more a:link, .more a:visited { padding: 0.4em; color: #B90504; font-weight: bold; font-size: 80%;}
+.ctrpg h1 { font-size: 1.3em; text-shadow: 1 1px 0 #999;}
+.title { width: 13em; display: inline-block; font-size: 1.1em;}
+.tabsholder { display: inline-block; margin: 0 auto; width: 90%;}
+#main .sermon-author { text-align: right; color: #aaa;}
+#main .sermon-author img { padding: 2px;}
+.sermon-author-x date { color: #444; font-style:normal;}
+#main .sermons-section { background: url('../images/layout/sermons_image.png') no-repeat right; margin: -1em 0 -2.5em; padding:1em 0;}
+#main .sermons-section h2, #main .articles-section h2  { border: none;}
+#main .articles-section { background: url('../images/layout/articles_sec_image.png') no-repeat right; margin: 0; padding:1em 0;}
+.button { height: 3em;}
+.section {  margin: 0; border-bottom: 1px dashed #b90504; padding-bottom: 1em; }
+.section .newsbox { padding: 0.2em; -webkit-box-shadow: 0px 1px 2px 0px #4a4a4a; -moz-box-shadow: 0px 1px 2px 0px #4a4a4a; box-shadow: 0px 1px 2px 0px #4a4a4a;}
+#main .section h2 { padding: .2em 0; text-align: left; border: none; font-size: 1.8em; color : #fff;
+	text-shadow: 1px 1px 3px #000;  filter: dropshadow(color=#ccced9, offx=0, offy=1); line-height: inherit;}
+.section .main-section, .section .section-highlight { margin:0.4em; background: inherit; padding: 0.4em; border-bottom: 1px dotted #ccc;}
+.section .main-section p, .section .section-highlight p { margin: 0; padding: 0; font-size: 95%;}
+.section .section-desc{ font-style: italic; color: #AF7817; font-size: 0.9em;}
+.section blockquote { font-style: italic; font-weight: bold; word-spacing: 0.2em; display: block; padding: 0 4em; margin-top: 2em;
+	text-align: right;}
+.section blockquote:before, .section blockquote:after { color: #69c; display: block; font-size: 400%; width: 40px; }
+.section blockquote:before { content: '\201C'; height: 0; margin-left: -0.7em; }
+.section blockquote:after { content: '\201D'; text-align: right; margin-top: 0.3em; width: 100%;}
+#events-title { text-align: center; padding: 0.5em;}
+.eday { background: #edcd39; display: block; font-weight: bold;}
+.eday:link, .eday:hover { color: #222; text-decoration: none;}

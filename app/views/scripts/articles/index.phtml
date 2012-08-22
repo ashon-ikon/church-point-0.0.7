@@ -1,0 +1,49 @@
+<?php
+$this->headLink()->appendStylesheet($this->fullBaseUrl() .'/css/articlesbase.css');
+?><div class="contentpad rdcorners greybox">
+<div id="main-articles" class="contentpad rdcorners whitebox">
+<div id="News" class="wdow fl"><h2 class="item"><a href="<?php echo $this->fullUrl(array('action' => 'allnews'), null, false)?>" title="view community news list">News List</a></h2>
+<?php 
+	if (is_array($all_news =  $this->news))
+	{
+		foreach ($all_news as $news)
+		{
+			
+			echo wrapHtml(
+				/* News content start*/
+				wrapHtml(wrapHtml($news['news_title'], 'strong'), 'a', array('href'=>$news['news_url'], 'class'=>'news-title')) 
+				. wrapHtml(wrapHtml(getShowcaseText($news['news_content'] . ' ' . $news['news_desc'], 200) ,'p'),'div', array('class'=> 'section-cont'))
+				/* Join the edit link */
+				. (array_key_exists('news_edit_link', $news) ?
+				 wrapHtml(wrapHtml('Edit', 'a', array('href' => $news['news_edit_link'], 'title' => 'Edit news')). ' | '. 
+				   	      wrapHtml('Remove', 'a', array('href' => $news['news_remove_link'], 'title' => 'Remove news')), 'p',array('class' => 'admin-link')) : '')
+				/* News content ends */
+				, 'div', array('class'=>'section-highlight', 'title'=>$news['news_desc']));
+
+		}
+	}
+?></div>
+<div id="Articles" class="wdow fl"><h2 class="item"><a href="<?php echo $this->fullUrl(array('action' => 'allarticles'), null, false)?>" title="view community articles list">Articles List</a></h2>
+<?php
+if (is_array($all_article =  $this->articles))
+	{
+		foreach ($all_article as $article)
+		{
+			
+			echo wrapHtml(
+				/* Artilce content start*/
+				wrapHtml(wrapHtml($article['article_title'], 'strong'), 'a', array('href'=>$article['article_url'], 'class'=>'article-title'))	
+				. wrapHtml(wrapHtml(getShowcaseText($article['article_content'] . ' ' . $article['article_desc'], 200) ,'p'),'div', array('class'=> 'section-cont'))
+				/* Join the edit link */
+				. (array_key_exists('article_edit_link', $article) ? 
+				 wrapHtml(wrapHtml('Edit', 'a', array('href' => $article['article_edit_link'], 'title' => 'Edit article')). ' | '. 
+				   	      wrapHtml('Remove', 'a', array('href' => $article['article_remove_link'], 'title' => 'Remove Article')), 'p',array('class' => 'admin-link')) : '')
+				/* Article content ends */
+				, 'div', array('class'=>'section-highlight', 'title'=>$article['article_desc']));
+
+		}
+	}
+?></div>
+<br class="clr" />
+</div>
+</div>

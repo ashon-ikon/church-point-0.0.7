@@ -1,0 +1,28 @@
+.ctrpg h1 { text-align: left; font-size: 1.3em; text-shadow: 1 1px 0 #999;}
+.content { text-align: justify; padding: 1.2em 0.3em 1em;}
+.form-field { margin: 0.8em 0.5em; background: #fff; padding: 0.3em; }
+.form-field:hover { background: #efefef;}
+.tabsholder { display: inline-block; margin: 0 auto; width: 90%;}
+.button { height: 3em;}
+#article {width: 80%; margin: 0 auto;}
+#article h2 { background: transparent; padding: 0;}
+#article p { padding: 1.5em;}
+#article .confirm-clause { font-size: 1.2em;}
+#article-topic {  }
+#article .title { border: none; font-size: 1.2em; font-style: normal; text-transform: none;}
+#article-title h2 { margin-bottom: 0; font-size: 1.9em; color: #36c;}
+#article-title p { margin: 0; padding: 0.3em 0 0; font-style: italic; color: #000;}
+#news {width: 80%; margin: 0 auto;}
+#news h2 { background: transparent; padding: 0;}
+#news p { padding: 1.5em;}
+#news .confirm-clause { font-size: 1.2em;}
+#news-topic {  }
+#news .title { border: none; font-size: 1.2em; font-style: normal; text-transform: none;}
+#news-title h2 { margin-bottom: 0; font-size: 1.9em; color: #36c;}
+#news-title p { margin: 0; padding: 0.3em 0 0; font-style: italic; color: #000;}
+.content { text-align: justify; padding: 1.2em 0.3em 1em;}
+.speaker-info { font-style: italic; }
+.speaker-info time { color: #aaa; }
+.author-name { color: #999; font-weight: bold;}
+.buttoncont {width: 25%; display: inline-block;}
+.buttoncont input {width: 10em;}

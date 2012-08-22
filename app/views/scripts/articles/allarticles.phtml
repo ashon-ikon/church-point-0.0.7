@@ -1,0 +1,49 @@
+<?php
+$articles = $this->articles;
+$edit_access = $this->edit_access;
+$this->headLink()->appendStylesheet($this->fullBaseUrl() .'/css/allarticles.css');
+?><div id="all-articles" class="lightgreybox rdcorners contentpad info">
+<div class="whitebox rdcorners contentpad">
+<?php if(!empty($this->errormsgs)): ?>
+<div class="warning rdcorners contentpad info centeralign"> 
+<?php  foreach ($this->errormsgs as $errors) echo '<p>',$errors,'</p>';?>
+</div>
+<?php endif; ?>
+
+<?php if ($this->successmsg):?>
+<p id="successhead" class="headerfont info rdcorners greenbox"><strong>Done!</strong></p>
+<div class="info rdcorners whitebox">
+	<p> <?php echo $this->successmsg; ?> </p>
+</div>
+<?php endif; ?>
+<?php 
+if ($articles)
+{
+	echo '<div class="articles-head bl"><span class="head secti">Title</span>' .
+			'<span class="head secda">Date</span>' .
+			'</div>';
+	foreach($articles as  $article)
+	{
+		
+		$article_url 	= $article['article_url'];
+		echo '<div class="serin"><span class="secti"><a title="'.$article['article_desc'].'" href="'. $article_url .'">'. $article['article_title'] .'</a></span>' .
+				'<span class="secda">'. date('M D j Y g:i a', strtotime($article['article_date']))  .'</span> ' ;
+		if ($this->edit_access)
+		{
+			echo ' &nbsp;&nbsp;&nbsp;<span>'. wrapHtml('Remove', 'a', array('href' => $article['article_remove_url'],
+														  'title' => 'Remove '. $article['article_title'] )).'</span>' ;
+		}
+		echo '</div>';	
+	}	
+	
+	
+}else
+{
+	/*no articles found */
+	echo '<h3>Empty Articles Storage</h3><p>No Articles were found.</p>';
+
+}
+	if ($edit_access)
+		echo '<div  class="addarticles serin" ><span title="Add new article"><a href="'. $this->fullUrl(array('action' => 'addarticles'), null, false) .'"><span class="plusbtn"></span>Add a new article</a></span></div>';
+?></div>
+</div>

@@ -1,0 +1,19 @@
+<br /><br />
+<div id="view-content">
+	<p>View script for controller <b>RrPage</b> and script/action name <b>index</b></p>
+		<pre><?php echo print_r($this->contents, true); // $content->content; ?></pre>
+			<?php if (!empty($this->contents)): foreach ($this->contents as $entry ): ?>
+				<p>
+					<?php echo $entry->content; ?>
+				</p>
+				<p><?php echo ')))'.$entry->id.'((('; ?></p>
+					
+	<span>
+</span>
+				
+		<?php //echo '--->'.count($cont) . '<----';?>
+	<?php endforeach; endif;?>
+	<?php echo $this->url(array('controller'=>'rrpage',
+								'action'=>'login',
+								'id'=>2), null, true);?>
+</div>

@@ -1,0 +1,13 @@
+<?php $form = $this->form;?>
+<div id="wrapper">
+<?php if(!empty($this->messages)): ?>
+<div class="warning rdcorners contentpad info centeralign"> 
+<?php  foreach ($this->messages as $message) echo '<p>',$message,'</p>';?>
+</div>
+<?php endif; ?>
+	<?php if ($this->errors){ echo '<div class="error rdcorners">'; foreach($this->errors as $err) { echo '<p>'.$err.'</p>';} echo '</div>';}?>
+	<div class="rdcorners info lightgreybox" id="login-page">
+	<?php echo $this->form;?>
+	<p class="aligncenter"><small><a href="<?php echo $this->url(array('controller'=>'account', 'action'=>'forgotpwd'),null, true);?>">Forgot Password</a></small></p>
+	</div>
+</div>

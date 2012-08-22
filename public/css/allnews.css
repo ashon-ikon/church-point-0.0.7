@@ -1,0 +1,38 @@
+.x-ctrpg h1 { text-align: left; font-size: 1.3em; text-shadow: 1 1px 0 #999;}
+#news h2 { background: transparent; padding: 0; line-height: 1.8em;}
+#sidepane { width: 28%; margin: 0 1%;}
+#news-topic {  margin-top: -2em;}
+#news-title { width: 90%;}
+#news-title h2 { margin-bottom: 0; font-size: 1.9em; color: #36c;}
+#news-title p { margin: 0; padding: 0.3em 0 0; font-style: italic; color: #000;}
+#news-date { width: 8%; margin-top: -1.2em; height: 96px; background: transparent;
+	color: #fff; padding: 0.5em 0 0; font-size: 100%;}
+#news-date time { display: block; width: 100%; text-align: center; padding: 0;}
+#news-date .day { font-size: 1.6em; font-weight: bold;}
+#news-date .month { font-size: 0.9em;}
+#news-date .year { font-size: 0.9em;}
+#news-content img { display: inline; padding: 3px; border: #cfcfcf solid 1px; margin: 4px; margin-right: 6px;}
+#news-content { line-height: 1.5em;}
+.content { text-align: justify; padding: 1.2em 0.3em 1em;}
+.validationerror { color: #f33; font-style: italic; font-size: 1em;}
+.speaker-info { font-style: italic; }
+.speaker-info time { color: #aaa; }
+.author-name { color: #999; font-weight: bold;}
+
+.news-head { font-size: 1.2em; font-weight: bold; padding: 0.7em 0.5em; border-bottom: 1px solid #ccc; }
+.addnews {font-size: 130%; color: #444; text-align: center; }
+.addnews a:link, .addnews a:visited, .addnews a:hover { color: #444; vertical-align: middle; }
+.addnews:hover { background: #4F5;}
+.plusbtn { display: inline-block; background: transparent url('../images/layout/greenplus_all.png') no-repeat; width:30px; height: 30px;}
+.plusbtn:hover {background-position: 0 -30;}
+.head { width: 10em; display: inline-block; }
+.serin { padding: 0.8em 0.5em; border-bottom: 1px dotted #dfdfdf; }
+.serin:hover { background: #C3FFF9; }
+.serin:hover a, .serin:hover a:link,  .serin:hover a:hover { color: #222;}
+.secti, .secsp, .secda, .secme { display: inline-block; }
+.secti { width: 60%;}
+.secti a:link, .secti a:visited { color: #777; text-decoration: none;}
+.secti a:hover { text-decoration: underline;}
+.secda { width: 25%;}
+.secadim { width: 14%;}
+.bl { color: #575757; }

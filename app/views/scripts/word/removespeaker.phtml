@@ -1,0 +1,34 @@
+<?php
+$baseUrl = Zend_Controller_Front::getInstance()->getRequest()->getHttpHost();
+$form 	= $this->form;
+$speaker = $this->speaker;
+$this->headLink()->appendStylesheet($this->baseUrl() .'/css/speakerremove.css');
+//$this->headLink()->appendStylesheet($this->baseUrl() .'/css/sharrre.css');
+//$this->headScript()->appendFile(	'/js/jquery.sharrre-1.2.0.min.js' , 'text/javascript');
+//$this->headScript()->appendFile(	'/js/jquery.sharrre.js' , 'text/javascript');
+//$this->headScript()->appendFile(	'http://static.ak.fbcdn.net/connect.php/js/FB.Share' , 'text/javascript');
+?>
+<div id="speaker" class="contentpad info">
+<?php if($form):?>
+	<div class="form">
+		<p class="confirm-clause">Are you sure you want to remove <strong><em><?php echo wrapHtml($speaker['speaker_fullname'], 'a', array('href' => $speaker['speaker_url'], 'title' => 'View ' . $speaker['speaker_fullname']));?></em></strong><br /></p>
+		<?php echo $form->getFormHeadTag();?>
+		<div><span class="buttoncont"><?php echo $form->cancel;?></span><span class="buttoncont"><?php echo $form->remove;?></span><?php echo $form->sp;?></div>
+		<?php echo $form->s_id;?>		
+		</form>
+	</div>
+<?php else:?>
+<?php if ($this->successmsg):?>
+<p id="successhead" class="headerfont info rdcorners greenbox"><strong>Done!</strong></p>
+<div class="info rdcorners whitebox">
+	<p> <?php echo $this->successmsg; ?> </p><p>Go <?php echo wrapHtml('Back', 'a', array('class'=> 'xbutton', 'href'=> $this->url(array('action'=>'managespeakers'), false, null))); ?> to all speakers.</p>
+</div>
+<?php else: ?>
+<div class="contentpad lightgreybox">
+		<h3>Oops.. Error Fetching Sermon.</h3>
+		<p>Please select a speaker to remove</p>
+	</div>
+<?php endif; ?>
+	
+<?php endif;?>
+</div>

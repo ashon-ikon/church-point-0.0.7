@@ -1,0 +1,28 @@
+<h2>Limited Privilege</h2>
+<p>The was an error serving the requested page</p>
+
+<h2><?php echo $this->message ?></h2>
+	<p><b>'There was an error serving this page'<br />We apologise for any incoveniences this might cause.</b></p>
+  
+  <h3>Url information:</h3>
+  <p>
+      <b>Incoming Url:</b> <?php echo $this->incoming_uri; ?>
+  </p>
+  
+  <?php if (isset($this->exception)): ?>
+  
+  <h3>Exception information:</h3>
+  <p>
+      <b>Message:</b> <?php echo $this->exception->getMessage() ?>
+  </p>
+
+  
+  <h3>Stack trace:</h3>
+  <pre><?php echo $this->exception->getTraceAsString() ?>
+  </pre>
+
+  <h3>Request Parameters:</h3>
+  <pre><?php echo $this->escape(var_export($this->request->getParams(), true)) ?>
+  </pre>
+
+  <?php endif ?>

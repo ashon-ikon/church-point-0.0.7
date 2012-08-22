@@ -1,0 +1,31 @@
+.x-ctrpg h1 { text-align: left; font-size: 1.3em; text-shadow: 1 1px 0 #999;}
+#sermon h2 { background: transparent; padding: 0; line-height: 1.8em;}
+.speaker-info { font-style: italic; }
+.speaker-info time { color: #aaa; }
+.author-name { color: #999; font-weight: bold;}
+#all-sermon-authors table { width: 100%; border-collapse: collapse;}
+#all-sermon-authors table tr { padding: 0.5em;}
+#all-sermon-authors table tr td { height: 55px; }
+#all-sermon-authors table tr td img { display: block; margin: 0 auto; padding: 2px;}
+.sermon-authors-head { font-size: 1.2em; font-weight: bold; padding: 0.7em 0.5em; border-bottom: 1px solid #ccc; }
+.addsermon-speaker {font-size: 130%; color: #444; text-align: center; }
+.addsermon-speaker a:link, .addsermon-speaker a:visited, .addsermon-speaker a:hover { color: #444; vertical-align: middle; }
+.addsermon-speaker:hover { background: #4F5;}
+.plusbtn { display: inline-block; background: transparent url('../images/layout/greenplus_all.png') no-repeat; width:30px; height: 30px;}
+.plusbtn:hover {background-position: 0 -30;}
+.head-x { width: 10em; display: inline-block; }
+.authrw { padding: 0.8em 0.5em; border-bottom: 1px dotted #dfdfdf;}
+.authrw:hover { background: #C3FFF9; }
+.authrw:hover a, .authrw:hover a:link,  .authrw:hover a:hover { color: #222;}
+.serin { padding: 0.8em 0.5em; border-bottom: 1px dotted #dfdfdf; }
+.serin:hover { background: #C3FFF9; }
+.serin:hover a, .serin:hover a:link,  .serin:hover a:hover { color: #222;}
+.secti, .secsp, .secda, .secme { display: inline-block; }
+.secti { width: 40%;}
+.secti a:link, .secti a:visited { color: #777; text-decoration: none;}
+.secti a:hover { text-decoration: underline;}
+.secsp { width: 20%; color: #aaa; }
+.secim { width: 6%;}
+.secda { width: 18%;}
+.secme { width: 8%;}
+.bl { color: #575757; }

@@ -1,0 +1,9 @@
+<?php
+$this->headScript()->appendFile($this->fullBaseUrl() .'/js/jquery-slidermenu.js');
+$baseUrl = $this->baseUrl . DIRECTORY_SEPARATOR ; // base directory 
+?>
+<div id="jmenusli" class="jmenusli">
+<?php echo $this->menus; ?>
+</div>
+<div class="clr"></div>
+<div class="clr"></div>

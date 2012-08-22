@@ -1,0 +1,100 @@
+<?php
+	$form 		= $this->form;
+	$user	 	= $this->user;
+	$ownPixLink	= $this->ownPixLink;
+	
+	$this->headLink()->appendStylesheet($this->fullBaseUrl() .'/css/profile.css');
+//		$this->headScript()->appendFile($this->baseUrl() .'/js/jquery.validate.js' , 'text/javascript');
+		
+	$baseUrl = $this->fullBaseUrl() . '/';
+
+?>
+<div id="user-profile">
+<?php if ($user): ?>
+	<div class="rdcorners contentpad">
+		<div class="fl lsidebar maxheight">
+			<div class="lightgreybox rdcorners contentpad mspacev">
+				<p class="whitebox contentpad centeralign">
+					<img src="<?php echo $baseUrl . APP_PROFILE_IMAGES_DIRECTORY . $user['user_profile_image'];?>" width="160" height="160" title="Profile Pix" /></p>
+				<?php if ($ownPixLink) echo '<a href="'. $ownPixLink .'" title="Change your image">Change image</a>';?>
+			</div>
+			<div class="lightgreybox rdcorners contentpad mspacev mspacev">
+				Tools
+			</div>
+		</div>
+		<div class="fl subcontent">
+			<div id="user-info" class="greybox rdcorners contentpad mspaceall profile">
+			<div class="whitebox">
+				<p class="sheader">Basic information <span class="profile-field-edit"><a href="<?php echo $this->url(array('controller'=>'account','action'=>'edituser'), null, false);?>">Edit</a></span></p>
+				<p><label>Name</label>
+					<span><?php echo $user['user_fname'], ' ', $user['user_lname'];/*, '<span class="gender"> (',('male' == $user['user_gender']? 'Mr. ':'Ms. ') ,')</span>'*/?></span></p>
+				<p><label>Email</label> <span><a class="email" href="mailto:<?php echo $user['email']?>" title="Send a mail to <?php echo $user['user_fname']?>"><?php echo $user['email']?></a></span></p>
+				<p><label>Account Confirmed:</label> <span class="profile-content"><?php echo null === $user['active']? '<b style="color: #4e4;">Yes</b>':'<b>No</b>' ?></span></p>
+			</div>
+			</div>
+			<br />
+			<div id="user-info" class="greybox rdcorners contentpad mspaceall profile">
+			<div class="whitebox">
+				<p class="sheader">Other information <span class="profile-field-edit"><a href="<?php echo $this->url(array('controller'=>'account','action'=>'edituser'), null, false);?>">Edit</a></span></p>
+				<p><label>Phone:</label> <span class="profile-content"><?php echo $user['user_mobile'];?></span></p>
+				<p><label>Address:</label> <span class="profile-content"><?php echo $user['user_address'];?></span></p>
+				<?php if ($user['user_address2']):?><p><label>&nbsp;</label> <span class="profile-content"><?php echo $user['user_address2'];?></span></p><?php endif;?>
+				<p><label>&nbsp;</label> <span class="profile-content"><?php echo $user['user_town'];?></span></p>
+				<p><label>&nbsp;</label> <span class="profile-content"><?php echo ($user['state_name'][0] == '-'?'N/A': $user['state_name']), (null !== $user['user_zip']?', ' .$user['user_zip'] : '');?></span></p>
+				<p><label>&nbsp;</label> <span class="profile-content"><?php echo $user['country_name'];?></span></p>
+				<p><label>Member Type:</label> <span class="profile-content"><?php echo $user['user_role'];?></span></p>
+			</div>
+			</div>
+			<br />
+			<div id="groups-info" class="greybox rdcorners contentpad mspaceall profile">
+				<div class="whitebox">
+				<p class="sheader"><?php echo $user['user_fname'];?>'s group information</p><div class="contentpad"><?php 
+				if (is_array($user_cGroups = $user['user_cgroups']) )
+					{
+						/**
+						 * 
+						Array
+        (
+            [group_id] => 5
+            [group_name] => News Editors Group
+            [group_desc] => This group is for news editors and moderators
+            [group_privacy_level] => privileged
+            [member_id] => 9
+            [user_id] => 5
+            [page_content_group_id] => 5
+            [access_right] => editor
+            [join_date] => 2012-02-20 10:28:45
+        )
+						 * 
+						 */
+						foreach ($user_cGroups as $user_cGroup)
+						{
+							echo '<p class="ugroup"><span class="ugname">'.
+								wrapHtml($user_cGroup['group_name'], 'a',
+								 
+											array(	'href'	=> 	$this->fullUrl(array('controller'=>'content-group', 'action'=>'viewgroup', 'g_id' =>$user_cGroup['group_id']), null, false),
+													'class'	=>	'cglink',
+													'title' => 	$user_cGroup['group_desc'])
+													
+										).'</span>' .
+									'<span class="ugaccess">'.ucfirst($user_cGroup['access_right']).'</span></p>';
+						}
+					}
+				?></div></div>
+			</div>
+		</div>
+		<div class="clr"></div>
+	</div>
+<?php else: ?>
+<div class="rdcorners contentpad">
+	<div class="maxheight">
+		<div class="lightgreybox rdcorners contentpad mspacev">
+		<h3 class="contentpad centeralign">Opps!</h3>
+			<p class="whitebox contentpad centeralign">
+			<strong>User Not Found!</strong><br />
+			</p>
+		</div>
+	</div>
+</div>
+<?php endif; ?>
+</div>

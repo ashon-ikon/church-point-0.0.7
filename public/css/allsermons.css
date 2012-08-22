@@ -1,0 +1,39 @@
+.x-ctrpg h1 { text-align: left; font-size: 1.3em; text-shadow: 1 1px 0 #999;}
+#sermon h2 { background: transparent; padding: 0; line-height: 1.8em;}
+#sidepane { width: 28%; margin: 0 1%;}
+#sermon-topic {  margin-top: -2em;}
+#sermon-title { width: 90%;}
+#sermon-title h2 { margin-bottom: 0; font-size: 1.9em; color: #36c;}
+#sermon-title p { margin: 0; padding: 0.3em 0 0; font-style: italic; color: #000;}
+#sermon-date { width: 8%; margin-top: -1.2em; height: 96px; background: transparent;
+	color: #fff; padding: 0.5em 0 0; font-size: 100%;}
+#sermon-date time { display: block; width: 100%; text-align: center; padding: 0;}
+#sermon-date .day { font-size: 1.6em; font-weight: bold;}
+#sermon-date .month { font-size: 0.9em;}
+#sermon-date .year { font-size: 0.9em;}
+#sermon-content img { display: inline; padding: 3px; border: #cfcfcf solid 1px; margin: 4px; margin-right: 6px;}
+#sermon-content { line-height: 1.5em;}
+.content { text-align: justify; padding: 1.2em 0.3em 1em;}
+.validationerror { color: #f33; font-style: italic; font-size: 1em;}
+.speaker-info { font-style: italic; }
+.speaker-info time { color: #aaa; }
+.author-name { color: #999; font-weight: bold;}
+
+.sermons-head { font-size: 1.2em; font-weight: bold; padding: 0.7em 0.5em; border-bottom: 1px solid #ccc; }
+.addsermon {font-size: 130%; color: #444; text-align: center; }
+.addsermon a:link, .addsermon a:visited, .addsermon a:hover { color: #444; vertical-align: middle; }
+.addsermon:hover { background: #4F5;}
+.plusbtn { display: inline-block; background: transparent url('../images/layout/greenplus_all.png') no-repeat; width:30px; height: 30px;}
+.plusbtn:hover {background-position: 0 -30;}
+.head { width: 10em; display: inline-block; }
+.serin { padding: 0.8em 0.5em; border-bottom: 1px dotted #dfdfdf; }
+.serin:hover { background: #C3FFF9; }
+.serin:hover a, .serin:hover a:link,  .serin:hover a:hover { color: #222;}
+.secti, .secsp, .secda, .secme { display: inline-block; }
+.secti { width: 40%;}
+.secti a:link, .secti a:visited { color: #777; text-decoration: none;}
+.secti a:hover { text-decoration: underline;}
+.secsp { width: 20%; color: #aaa; }
+.secda { width: 19%;}
+.secme { width: 11%;}
+.bl { color: #575757; }

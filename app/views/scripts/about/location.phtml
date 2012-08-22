@@ -1,0 +1,18 @@
+<?php $script = "\$(function(){	var b = \$('#showmap'); b.click(function(){\$('#map').toggle(400,'linear',function(){ if (b.text()=='Hide') b.text('Show'); else b.text('Hide');});});});";
+	//$this->headScript()->appendScript($script, $type = 'text/javascript');
+?>
+<div id="topic">				
+	<div class="info contentpad greybox rdcorners">
+		<h2 class="contentpad info calign">Location Map <?php /*<span class="fr"><button id="showmap" class="togglebutton">Hide</button></span><span class="clr"></span><br />;*/ ?></h2>
+		<div id="map" class="whitebox rdcorners contentpad aligncenter info">
+		<p class="lightgrey info contentpad"><strong class="rdcorners contentpad greenbox">You can locate us at:</strong></p>
+		<p class="aligncenter">
+			<b><span class="redtitle"><?php echo APP_CHURCH_NAME;?></span></b><br /><br />
+			19, Jalan OP 1/1, Pusat Perdagangan One Puchong<br />
+			Off LDP, 47160 Puchong, Selangor<br />
+			Tel: +603-8075-8784<br />
+			Email: <a class="email" href="mailto:<?php echo APP_CHURCH_EMAIL /*$user['email']*/; ?>" title="Send us an email"><?php echo APP_CHURCH_EMAIL;?></a>
+		</p>
+		<p><iframe width="700" height="600" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=PERMAI+CHINESE+METHODIST+CHURCH+Puchong+Selangor+Malaysia&amp;aq=2&amp;oq=perm&amp;sll=3.040154,101.618514&amp;sspn=0.047998,0.084543&amp;ie=UTF8&amp;hq=PERMAI+CHINESE+METHODIST+CHURCH&amp;hnear=Puchong,+Selangor,+Malaysia&amp;t=m&amp;cid=7069347760790555860&amp;ll=3.047783,101.616755&amp;spn=0.025713,0.029998&amp;z=15&amp;iwloc=A&amp;output=embed"></iframe><br /><small><a target="_blank" href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=PERMAI+CHINESE+METHODIST+CHURCH+Puchong+Selangor+Malaysia&amp;aq=2&amp;oq=perm&amp;sll=3.040154,101.618514&amp;sspn=0.047998,0.084543&amp;ie=UTF8&amp;hq=PERMAI+CHINESE+METHODIST+CHURCH&amp;hnear=Puchong,+Selangor,+Malaysia&amp;t=m&amp;cid=7069347760790555860&amp;ll=3.047783,101.616755&amp;spn=0.025713,0.029998&amp;z=15&amp;iwloc=A" style="color:#0000FF;text-align:left">View Larger Map</a></small></p>
+		</div>
+	</div>

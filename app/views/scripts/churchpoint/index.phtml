@@ -1,0 +1,39 @@
+<?php
+/*-------------------------------------------
+ * @project:	ChurchPoint
+ * @package:	package_name
+ * Created by ashon on Apr 18, 2012
+ * (c) 2010 - 2012 Copyright
+ * -------------------------------------------
+ */
+	$this->headLink()->appendStylesheet($this->fullBaseUrl() .'/css/churchpoint.css');
+//	$this->headScript()->appendFile($this->fullBaseUrl() .'/js/jquery.validate.js' , 'text/javascript');
+	$churchpoints		= $this->churchpoints;
+?>
+<div class="rdcorners contentpad lightgreybox">
+<div class="whitebox contentpad rdcorners cf">
+
+<?php if ($churchpoints):?>
+<?php
+foreach($churchpoints as $point)
+{
+	echo '<div class="'. $point['class'].' wdow fl">'.
+		 '<strong class="heading">'. $point['name'].'</strong>' .
+		 '<p class="caption" title="'. $point['main_title'] .'">'.
+		  wrapHtml($point['caption'] . '<br /><span class="fwd"></span>', 'a', array('title' => $point['main_title'], 'href' => $point['main_url'])).'</p>';
+	/* print the other links */
+	$links	= '';
+	foreach ($point['menus'] as $menu)
+	{
+		$links	.= wrapHtml($menu['link_name'] , 'a' , $menu['options']) . ' | '; 
+	}
+	if (substr($links, -2) == '| ')
+		$links = substr($links , 0, strlen($links) - 2);
+		
+	echo '<p class="options">'. $links .'</p>';
+	echo '</div>';
+} 
+?>
+<?php endif;?>
+</div>
+</div>

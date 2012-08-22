@@ -1,0 +1,64 @@
+<div id="user-profile">
+	<?php
+		$users = $this->users;
+		$this->headLink()->appendStylesheet($this->baseUrl() .'/css/profile.css');
+		$baseUrl = $this->baseUrl() . '/';
+		/**
+		 * 
+		 * 
+Array
+(
+    [user_id] => 16
+    [username] => 
+    [email] => funsho@pcmc.org.my
+    [user_role] => member
+    [active] => f2c26f22f43afdda77e5055cd9c94761
+    [reg_date] => 2011-12-24 20:18:39
+    [user_info_Id] => 7
+    [user_country_id] => 132
+    [user_state_id] => 15
+    [user_date_of_birth] => 1985-11-14
+    [user_address] => Nowhere Here
+    [user_address2] => Nowhere here3
+    [user_zip] => 47100
+    [user_town] => Puchong
+    [user_mobile] => +6038758784
+    [state_id] => 15
+    [state_name] => Selangor
+    [state_abbrv] => SL
+    [country_id] => 132
+    [country_name] => Malaysia
+    [country_abbrv] => MY
+)
+		 * 
+		 */
+	?>
+	<div class="rdcorners contentpad">
+		<div class="fl lsidebar maxheight">
+			<div class="lightgreybox rdcorners contentpad mspacev">
+				<p class="whitebox contentpad centeralign">
+					<img src="<?php echo $baseUrl . APP_PROFILE_IMAGES_DIRECTORY . $user['user_profile_image'];?>.png" width="154" height="160" title="Profile Pix" /></p>
+				<a href="">Change image</a>
+			</div>
+			<div class="lightgreybox rdcorners contentpad mspacev mspacev">
+				Tools
+			</div>
+		</div>
+		<div class="fl subcontent">
+			<div id="user-info" class="greybox rdcorners contentpad mspaceall profile">
+				<p class="sheader">Basic information <a href="#">SOmetest</a></p>
+				<p><label>Name</label>
+					<span><?php echo $user['user_fname'], ' ', $user['user_lname'];/*, '<span class="gender"> (',('male' == $user['user_gender']? 'Mr. ':'Ms. ') ,')</span>'*/?></span></p>
+				<p><label>Email</label> <span><a class="email" href="mailto:<?php echo $user['email']?>" title="Send a mail to <?php echo $user['user_fname']?>"><?php echo $user['email']?></a></span></p>
+			</div>
+			<br />
+			<div id="user-info" class="greybox rdcorners contentpad mspaceall profile">
+				<p class="sheader">Other information</p>
+				<p><label>Name</label>
+					<span><?php echo $user['user_fname'], ' ', $user['user_lname'];/*, '<span class="gender"> (',('male' == $user['user_gender']? 'Mr. ':'Ms. ') ,')</span>'*/?></span></p>
+				<p><label>Email</label> <span><a class="email" href="mailto:<?php echo $user['email']?>" title="Send a mail to <?php echo $user['user_fname']?>"><?php echo $user['email']?></a></span></p>
+			</div>
+		</div>
+		<div class="clr"></div>
+	</div>
+</div>

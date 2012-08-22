@@ -1,0 +1,43 @@
+<div id="user-profile">
+	<?php
+		$form = $this->form;
+		$user = $this->user;
+		$this->headLink()->appendStylesheet($this->baseUrl() .'/css/profile.css');
+//		$this->headScript()->appendFile($this->baseUrl() .'/js/jquery.validate.js' , 'text/javascript');
+		
+		$baseUrl = $this->baseUrl() . '/';
+	?>
+	<div class="rdcorners contentpad">
+		<div class="fl lsidebar maxheight">
+			<div class="lightgreybox rdcorners contentpad mspacev">
+				<p class="whitebox contentpad centeralign">
+					<img src="<?php echo $baseUrl . APP_PROFILE_IMAGES_DIRECTORY . $user['user_profile_image'];?>.png" width="154" height="160" title="Profile Pix" /></p>
+				<a href="">Change image</a>
+			</div>
+			<div class="lightgreybox rdcorners contentpad mspacev mspacev">
+				Tools
+			</div>
+		</div>
+		<div class="fl subcontent">
+			<div id="user-info" class="greybox rdcorners contentpad mspaceall profile">
+				<p class="sheader">Basic information <span class="profile-field-edit"><a href="#">Edit</a></span></p>
+				<p><label>Name</label>
+					<span><?php echo $user['user_fname'], ' ', $user['user_lname'];/*, '<span class="gender"> (',('male' == $user['user_gender']? 'Mr. ':'Ms. ') ,')</span>'*/?></span></p>
+				<p><label>Email</label> <span><a class="email" href="mailto:<?php echo $user['email']?>" title="Send a mail to <?php echo $user['user_fname']?>"><?php echo $user['email']?></a></span></p>
+				<p><label>Account Confirmed:</label> <span class="profile-content"><?php echo null === $user['active']? '<b style="color: #4e4;">Yes</b>':'<b>No</b>' ?></span></p>
+			</div>
+			<br />
+			<div id="user-info" class="greybox rdcorners contentpad mspaceall profile">
+				<p class="sheader">Other information <span class="profile-field-edit"><a href="#">Edit</a></span></p>
+				<p><label>Phone:</label> <span class="profile-content"><?php echo $user['user_mobile'];?></span></p>
+				<p><label>Address:</label> <span class="profile-content"><?php echo $user['user_address'];?></span></p>
+				<p><label>&nbsp;</label> <span class="profile-content"><?php echo $user['user_address2'];?></span></p>
+				<p><label>&nbsp;</label> <span class="profile-content"><?php echo $user['user_town'];?></span></p>
+				<p><label>&nbsp;</label> <span class="profile-content"><?php echo $user['state_name'], (null !== $user['user_zip']?', ' .$user['user_zip'] : '');?></span></p>
+				<p><label>&nbsp;</label> <span class="profile-content"><?php echo $user['country_name'];?></span></p>
+				<p><label>Member Type:</label> <span class="profile-content"><?php echo $user['user_role'];?></span></p>
+			</div>
+		</div>
+		<div class="clr"></div>
+	</div>
+</div>

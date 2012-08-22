@@ -1,0 +1,8 @@
+<style>
+	.churchname{ font-weight: bold; font-size:1em;}
+	.header {font-size: 2em; color: #555; bottom-border: 4px solid #222;}
+	.content {font-size: 0.85em; color: #555;}
+</style>
+<div><h2><span class="header"><?php echo $churchname; ?></span></h2><p>Dear <?php echo $firstname; ?>,<br /><br /></p><p><span class="churchname"><?php echo $churchname; ?></span> recently received a request for a forgotten password.<br><br>To change your password, simply click on the link below or paste into the url field on your favorite browser:<br><br><a href="<?php echo $link; ?>" target="_blank"><?php echo $link; ?></a> <br><br>If you did not request this change, you do not need to do anything.<br><br>This link will expire in one hour.<br /><br />
+Thanks,<br />
+<?php echo $churchname; ?> Online Support. <br><br>If you have any questions about the system, feel free to contact us anytime at <a ymailto="mailto:<?php echo $adminemail;?>" href="mailto:<?php echo $adminemail; ?>"><?php echo $adminemail; ?></a>.<br><br><br>     </div>

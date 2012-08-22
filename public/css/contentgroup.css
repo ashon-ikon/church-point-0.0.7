@@ -1,0 +1,12 @@
+.profile-content {color: #222;}
+#user-info { font-size: 0.95em;}
+#user-info p { margin: 0.7em;}
+#user-info p a { text-align: right;}
+#user-info label {font-weight: bold; width: 120px; display:inline-block;}
+#user-info span .gender {font-style: italic; }
+#user-info span .profile-field-edit {right: 0; position: absolute; }
+.ugroup { border-bottom: 1px solid #eaeaea; padding: 0.5em 0.3em;}
+.ugname, .ugaccess { display: inline-block;}
+.ugname { width: 70%; font-size: 110%;}
+.ugname a:link {text-decoration: none;}
+.ugaccess { width: 25%; font-style: italic;}

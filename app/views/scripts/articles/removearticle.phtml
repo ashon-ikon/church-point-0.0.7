@@ -1,0 +1,29 @@
+<?php
+$form 	= $this->form;
+$article = $this->article;
+$this->headLink()->appendStylesheet($this->fullBaseUrl() .'/css/articleremove.css');
+?>
+<div id="article" class="contentpad info">
+<?php if($form):?>
+	<div class="form">
+		<p class="confirm-clause">Are you sure you want to remove <strong><em><?php echo wrapHtml($article['article_title'], 'a', array('href' => $article['article_url'], 'title' => $article['article_highlight']));?></em></strong><br /></p>
+		<?php echo $form->getFormHeadTag();?>
+		<div><span class="buttoncont"><?php echo $form->cancel;?></span><span class="buttoncont"><?php echo $form->remove;?></span></div>
+		<?php echo $form->s_id;?>		
+		</form>
+	</div>
+<?php else:?>
+<?php if ($this->successmsg):?>
+<p id="successhead" class="headerfont info rdcorners greenbox"><strong>Done!</strong></p>
+<div class="info rdcorners whitebox">
+	<p> <?php echo $this->successmsg; ?> </p><p>Go <?php echo wrapHtml('Back', 'a', array('class'=> 'xbutton', 'href'=> $this->url(array('action'=>'articles'), false, null))); ?> to all articles.</p>
+</div>
+<?php else: ?>
+<div class="contentpad lightgreybox">
+		<h3>Oops.. Error Fetching Article.</h3>
+		<p>Please select a article to remove</p>
+	</div>
+<?php endif; ?>
+	
+<?php endif;?>
+</div>

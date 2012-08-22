@@ -1,0 +1,56 @@
+<?php
+	$users = $this->users;
+//	$this->headLink()->appendStylesheet($this->baseUrl() .'/css/profile.css');
+	$this->headScript()->appendFile($this->baseUrl() .'/js/jquery.allusers.js' , 'text/javascript'); 
+	/*
+	 * Array
+(
+    
+    [4] => Array
+        (
+            [user_id] => 0
+            [username] => 
+            [user_fname] => 
+            [user_lname] => 
+            [password] => 
+            [email] => 
+            [user_role] => 
+            [active] => 
+            [reg_date] => 
+            [user_info_Id] => 5
+            [user_country_id] => 132
+            [user_state_id] => 15
+            [user_date_of_birth] => 1970-01-01
+            [user_gender] => male
+            [user_address] => Nowhere Here
+            [user_address2] => Nowhere here3
+            [user_profile_image] => no-image
+            [user_zip] => 47100
+            [user_town] => Puchong
+            [user_mobile] => +6038758784
+            [state_id] => 15
+            [state_name] => Selangor
+            [state_abbrv] => SL
+            [country_id] => 132
+            [country_name] => Malaysia
+            [country_abbrv] => MY
+        )
+
+	 */
+?>
+<div id="all-users">
+	<div class="rdcorners info contentpad lightgreybox">
+		<?php if ($users):?>
+<?php
+	foreach($users as  $user)
+	{
+
+		echo '<span>', $user['user_lname'], ', ' , $user['user_fname'], '</span><br />'; 		
+	}
+?>
+<?php else: ?>
+			<h3>No users yet</h3>
+			<p>It appears that there are not users in your community yet</p>
+<?php endif;?>
+	</div>
+</div>

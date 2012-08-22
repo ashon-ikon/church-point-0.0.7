@@ -1,0 +1,49 @@
+<?php
+$all_news = $this->news;
+$edit_access = $this->edit_access;
+$this->headLink()->appendStylesheet($this->fullBaseUrl() .'/css/allnews.css');
+?><div id="all-news" class="lightgreybox rdcorners contentpad info">
+<div class="whitebox rdcorners contentpad">
+<?php if(!empty($this->errormsgs)): ?>
+<div class="warning rdcorners contentpad info centeralign"> 
+<?php  foreach ($this->errormsgs as $errors) echo '<p>',$errors,'</p>';?>
+</div>
+<?php endif; ?>
+
+<?php if ($this->successmsg):?>
+<p id="successhead" class="headerfont info rdcorners greenbox"><strong>Done!</strong></p>
+<div class="info rdcorners whitebox">
+	<p> <?php echo $this->successmsg; ?> </p>
+</div>
+<?php endif; ?>
+<?php 
+if ($all_news)
+{
+	echo '<div class="news-head bl"><span class="head secti">Title</span>' .
+			'<span class="head secda">Date</span>' .
+			'</div>';
+	foreach($all_news as  $news)
+	{
+		
+		$news_url 	= $news['news_url'];
+		echo '<div class="serin"><span class="secti"><a title="'.$news['news_desc'].'" href="'. $news_url .'">'. $news['news_title'] .'</a></span>' .
+				'<span class="secda">'. date('M D j Y g:i a', strtotime($news['news_date']))  .'</span> ' ;
+		if ($this->edit_access)
+		{
+			echo ' &nbsp;&nbsp;&nbsp;<span class="secadim">'. wrapHtml('Remove', 'a', array('href' => $news['news_remove_url'],
+														  'title' => 'Remove '. $news['news_title'] )).'</span>' ;
+		}
+		echo '</div>';	
+	}	
+	
+	
+}else
+{
+	/*no news found */
+	echo '<h3>Empty News Storage</h3><p>No News were found.</p>';
+
+}
+	if ($edit_access)
+		echo '<div  class="addnews serin" ><span title="Add new news"><a href="'. $this->fullUrl(array('action' => 'addnews'), null, false) .'"><span class="plusbtn"></span>Add a new News</a></span></div>';
+?></div>
+</div>

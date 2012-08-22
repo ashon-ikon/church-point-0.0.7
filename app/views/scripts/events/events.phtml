@@ -1,0 +1,60 @@
+<?php
+$event 		= $this->event;
+$event_prev	= $this->event_prev;
+$event_next	= $this->event_next;
+$this->headLink()->appendStylesheet($this->fullBaseUrl() .'/css/event.css');
+$this->headLink()->appendStylesheet($this->fullBaseUrl() .'/css/sharrre.css');
+$this->headScript()->appendFile(	$this->fullBaseUrl() .'/js/jquery.sharrre-1.2.0.min.js' , 'text/javascript');
+$this->headScript()->appendFile(	$this->fullBaseUrl() .'/js/jquery.sharrre.js' , 'text/javascript');
+//$this->headScript()->appendFile(	'http://static.ak.fbcdn.net/connect.php/js/FB.Share' , 'text/javascript');
+
+if ($event)
+{
+$this->headMeta()->setProperty('og:title', $event['event_title']);
+$this->headMeta()->setProperty('og:type', 'event, event');
+$this->headMeta()->setProperty('og:description', substr(remove_html_tags($event['event_content']), 0, 200) . ' ...');
+}
+?>
+<?php if($event):?>
+	<div id="event" class="contentpad mspacev fl">
+		<div class="greybox rdcorners contentpad event-nav"><?php echo $event_prev ? $event_prev : 'None'; ?><span class="fr"><?php echo $event_next ? $event_next : 'None'; ?></span></div>
+		
+		<?php if ($this->edit_link): ?>
+		<p class="alignright nomargin"><a class="greenxbutton" href="<?php echo $this->edit_link;?>">Edit event</a></p>
+		<?php endif;?>
+		<div id="event-content" class="content">
+			Calendar
+		</div>
+	</div>
+	<div id="sidepane" class="fl">
+		<div id="event-tags" class="section">
+		</div>
+		<div id="share" class="section">
+			<h3>Share This</h3>
+			<div id="share-button" data-url="<?php echo $this->fullUrl;?>" data-text="<?php echo $event['event_title'];?>" data-title="share"></div>
+			<script type="text/javascript">initSharrre('share-button');</script>
+		</div>
+		<div class="clr"></div>
+		<div id="other-media" class="section">
+			<div id="audio-section">
+				<h3>Audio</h3>
+				<p>Audio not available yet</p>
+			</div>
+			<div id="video-section">
+				<h3>Video</h3>
+				<p>video not available yet</p>
+			</div>
+		</div>
+		<div id="event-calendar" class="section">
+			<h3>Events Calendar</h3>
+			<?php echo $this->calendar;?>
+		</div>
+		
+	</div>
+	<div class="clr"></div>
+<?php else:?>
+	<div class="contentpad lightgreybox">
+		<h3>Oops.. Error Fetching Event.</h3>
+		<p>We are sorry, it appears this page can not be found.</p>
+	</div>
+<?php endif;?>

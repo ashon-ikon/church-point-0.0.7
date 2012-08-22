@@ -1,0 +1,17 @@
+.ctrpg {width: 78%;}
+.wdow { width: 44%; min-height: 200px; margin: 1%; background: #fff; padding: 0.6em; border: 2px solid #fff; text-align: center;
+	 -moz-border-radius: 0.5em; -webkit-border-radius: 0.5em; -khtml-border-radius: 20px; border-radius: 0.5em;
+}
+.wdow .options a:hover{ font-weight: bold; color: #f35252;}
+.wdow:hover { border: 2px solid #aaa; background:#f1f1f1;}
+.wdow .heading { font-size: 110%; display:block; text-align: center; margin:2em 0.8em;}
+.word:hover { background: #f9f9f9 url('/../images/layout/preaching.gif') no-repeat 90% 10%;}
+.devotion:hover { background: #f9f9f9 url('/../images/layout/bible-devo.jpg') no-repeat 90% 10%;}
+.events:hover { background: #f9f9f9 url('/../images/layout/calendar.gif') no-repeat 90% 10%;}	
+.cgroups:hover { background: #f9f9f9 url('/../images/layout/unityall.png') no-repeat 90% 10%;}
+.articles:hover { background: #f9f9f9 url('/../images/layout/news.png') no-repeat 90% 10%;}
+.library:hover { background: #f9f9f9 url('/../images/layout/books.png') no-repeat 90% 10%;}
+.caption { font-style: italic; }
+.fwd {background: transparent url('/../images/layout/forward_all.png') no-repeat; width: 60px; height:60px; display: block;
+	text-indent: -99999px; content:"."; margin:1em auto 0.3em;}
+.fwd:hover {background-position: 0px -60px;}

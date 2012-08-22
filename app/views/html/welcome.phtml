@@ -1,0 +1,5 @@
+<style>
+	.churchname{ font-weight: bold; font-size:1em;}
+	.content {font-size: 0.85em; color: #555;}
+</style>
+<div><p>Dear <?php echo $firstname; ?>,<br /><br /></p>Welcome to the <span class="churchname"><?php echo $churchname; ?></span> online community!<br><br>To activate your account, simply click on the link below or paste into the url field on your favorite browser:<br><br><a href="<?php echo $link; ?>" target="_blank"><?php echo $link; ?></a> <br><br>By signing up for <span class="churchname"><?php echo $churchname; ?></span> account I acknowledge that I have read and agree to the Terms of Use and Privacy Policy located at the following link:<br><br><a href="<?php echo $terms; ?>" target="_blank"><?php echo $terms; ?></a><br><br>The activation link will only be good for 2 weeks, after that you will have to try again from the beginning. <br><br>If you have any questions about the system, feel free to contact us anytime at <a ymailto="mailto:<?php echo $adminemail;?>" href="mailto:<?php echo $adminemail; ?>"><?php echo $adminemail; ?></a>.<br><br>The <?php echo $churchname; ?> Team,<br>God bless you.<br><br><br>     </div>

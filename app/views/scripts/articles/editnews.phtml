@@ -1,0 +1,58 @@
+<?php 
+	$form 		= $this->form;
+	$news 	= $this->news;
+	$this->headLink()->appendStylesheet($this->baseUrl() .'/css/newsedit.css');
+	$this->headScript()->appendFile($this->baseUrl() .'/js/jquery.validate.js' , 'text/javascript');
+	$this->headScript()->appendFile($this->baseUrl() .'/js/jquery.newsedit.js' , 'text/javascript');
+?>
+<div id="news-edit" class="">
+	<?php if ($this->successmsg):?>
+	<p id="successhead" class="headerfont info rdcorners greenbox"><strong>Done!</strong></p>
+	<div class="info rdcorners whitebox">
+		<p> <?php echo $this->successmsg; ?> </p>
+	</div>
+	<?php endif; ?>
+	<?php if ($this->errormsgs){ echo '<div class="error rdcorners">'; foreach($this->errormsgs as $err) { echo '<p>'.$err.'</p>';} echo '</div>';}?>
+	<?php if ($form):?>
+		<div class="contentpad greybox rdcorners">
+		<?php echo $form->getFormHeadTag(); ?>
+		<div class="info whitebox rdcorners">
+			<div class="form-field"><strong class="title">* Title:</strong><?php echo $form->title; ?></div>
+			<div class="form-field"><strong class="title">Brief News Description:</strong><?php echo $form->content_desc; ?></div>
+			<div class="form-field"><strong class="title">*News Content:</strong><div class="contentpad info"><?php echo $this->news_editor; ?></div></div>
+			<div class="form-field"><strong class="title">*Tags</strong><?php echo $form->tags; ?></div>
+			<div class="form-field"><strong class="title">&nbsp;</strong><?php echo $form->preview, ' &nbsp; ', $form->submit, ' &nbsp; ', $form->cancel; ?></div>
+		</div>
+		<?php if($this->preview_news):?>
+			<div class="info whitebox rdcorners">
+			<h2 id="prev" class="aligncenter mspacev">Article Preview</h2>
+			<div id="news-preview" class="contentpad mspacev">
+				<div id="news-topic-preview" class="">
+					
+					<header>
+					<div id="news-title-preview" class="fl"><h2><?php echo $this->preview_title;?></h2>
+					<?php if ($this->preview_author) echo '<p class="author">by <span class="aurthor-name">'.$this->preview_author .'</span><p>'; ?></div>
+					<div id="news-date-preview" class="fl">
+						<time class="month"><?php echo date('M', 	$this->preview_time); ?></time>
+						<time class="day"><?php echo date('d', 		$this->preview_time); ?></time>
+						<time class="year"><?php echo date('Y', 	$this->preview_time); ?></time>
+						<div id="fb-root-preview"></div>
+					</div>
+					<div class="clr"></div>
+					</header>
+				</div>
+				<div id="news-content-preview" class="content">
+				
+				<?php echo $this->preview_news;?>
+				</div>
+			</div>
+			</div>
+		<?php endif; ?>
+		<?php echo $form->formClose(); ?>
+		</div>	
+	<?php else:?>
+	<div class="info whitebox rdcorners">
+		<p> Opps! Error</p>
+	</div>
+	<?php endif;?>
+</div>

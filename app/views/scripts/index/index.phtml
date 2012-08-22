@@ -1,0 +1,8 @@
+<?php
+	/* Include necessary styles and scripts */
+	$this->headLink()->appendStylesheet($this->fullBaseUrl() .'/css/homepage.css');
+	$this->headScript()->appendFile($this->baseUrl() .'/js/jquery.homepage.js' , 'text/javascript');
+//	$this->headScript()->appendFile($this->baseUrl() .'/js/jquery.articleedit.js' , 'text/javascript');
+
+echo $this->template_content;  
+?>

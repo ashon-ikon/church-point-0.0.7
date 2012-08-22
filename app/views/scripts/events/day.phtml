@@ -1,0 +1,38 @@
+<?php
+	$this->headLink()->appendStylesheet($this->fullBaseUrl() .'/css/eventdetail.css'); 
+	$event		= $this->event;
+	$edit_link	= $this->edit_link;
+	if ($event):
+?>
+<div id="event-detail" class="fl">
+<div class="">
+	<h2><?php echo $event['event_title']; ?></h2>
+	<div class="ralign">filed under <span class="event-group"><?php echo $event['group_name'];?></span></div>
+	<div class="contentpad">Commencing <span class="event-from"><?php
+	$event_time	=	 strtotime($event['event_start_date']);
+	echo date('l', $event_time), ', ' ;
+	echo date('jS', $event_time), ' ' ;
+	echo date('F', $event_time), ' ' ;
+	echo date('Y', $event_time) ;
+	?></span> <span class="event-time">@ <?php echo date('h:s a', $event_time);?></span> till  
+	<span class="event-to"><?php 
+	$event_time	=	 strtotime($event['event_stop_date']);
+	echo date('l', $event_time), ', ' ;
+	echo date('jS', $event_time), ' ' ;
+	echo date('F', $event_time), ' ' ;
+	echo date('Y', $event_time) ;
+	?></span> <span class="event-time">@ <?php echo date('h:s a', $event_time);?></span></div>
+	<div class="contentpad"><?php 
+	if ($edit_link)
+		echo '<a class="xbutton" href="'. $edit_link.'">Edit</a>';
+	echo $event['event_desc'];
+	?><span class="event-image"><img src="<?php echo $event['event_image'];?>" /></span></div>
+</div>
+</div>
+<div id="event-side" class="fl">
+	<div class="contentpad">
+		Samples
+	</div>
+</div>
+<div class="clr"></div>
+<?php endif; ?>

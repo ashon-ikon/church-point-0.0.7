@@ -1,0 +1,20 @@
+#news {}
+#articles {}
+.wdow { width: 46%; min-height: 200px; margin:1%; background: #fff; padding: 0.6em; border: 2px solid #fff; text-align: center;
+	 -moz-border-radius: 0.5em; -webkit-border-radius: 0.5em; -khtml-border-radius: 20px; border-radius: 0.5em;
+}
+.wdow .options a:hover{ font-weight: bold; color: #f35252;}
+.wdow:hover { border: 2px solid #aaa; background:#fbfbfb;}
+#main-articles .item { background: #ececec; padding: 0;}
+#main-articles .item:hover { background: #66FF69; color: #222;}
+#main-articles .item a:link { display: block; padding: 0.5em;}
+#main-articles .item a:hover { color: #444;}
+.section-highlight { text-align: left; border-bottom: 1px dotted #888; padding: 0.5em;}
+.section-highlight:hover { background: #e4f4ff; }
+.section-highlight .news-title { font-style: italic;}
+.section-highlight .news-title:link { text-decoration: underline;}
+.section-highlight .section-cont { margin: 0.5em 0; font-size: 90%;}
+.section-highlight .article-title { font-style: italic;}
+.section-highlight .article-title:link { text-decoration: underline;}
+.admin-link { font-size: 90%; text-align: right;}
+.admin-link a:link; .admin-link a:visited { color: #d33;}

@@ -1,0 +1,102 @@
+/*
+Skin Name: Nivo Slider Default Theme
+Skin URI: http://nivo.dev7studios.com
+Skin Type: flexible
+Description: The default skin for the Nivo Slider.
+Version: 1.2
+Author: Gilbert Pellegrom
+Author URI: http://dev7studios.com
+*/
+.theme-ashon .nivoSlider {
+	position:relative;
+	background:#fff url('../images/layout/loading.gif') no-repeat 50% 50%;
+    margin-bottom:-13px;
+    -webkit-box-shadow: 0px 1px 8px 0px #4a4a4a;
+    -moz-box-shadow: 0px 1px 8px 0px #4a4a4a;
+    box-shadow: 0px 1px 8px 0px #4a4a4a;
+}
+.imagesliderbox {
+	width: 812px; height: 212px; margin: 0 auto; padding: 0; position: relative;
+	left: 0px; top: 10px; background:#fff url('../images/layout/loading.gif') no-repeat 50% 50%;
+}
+
+.theme-ashon .nivoSlider img {
+	position:absolute;
+	top:0px;
+	left:0px;
+	display:none;
+}
+.theme-ashon .nivoSlider a {
+	border:0;
+	display:block;
+}
+
+.theme-ashon .nivo-controlNav {
+	text-align: center;
+	padding: 20px 0;
+}
+.theme-ashon .nivo-controlNav a {
+	display:inline-block;
+	width:13px;
+	height:13px;
+	background:url('../images/layout/bg_control_nav.png') no-repeat;
+	text-indent:-9999px;
+	border:0;
+	margin: 0 2px;
+}
+.theme-ashon .nivo-controlNav a:hover {
+	background-position:0 -26px;
+}
+.theme-ashon .nivo-controlNav a.active {
+	background-position:0 -13px;
+}
+
+.theme-ashon .nivo-directionNav a {
+	display:block;
+	width:52px;
+	height:52px;
+	background:url('../images/layout/bg_direction_nav.png') no-repeat;
+	text-indent:-9999px;
+	border:0;
+}
+.theme-ashon a.nivo-nextNav {
+	background-position:-52px 0;
+	right:-18px;
+}
+.theme-ashon a.nivo-prevNav {
+	left:-18px;
+}
+
+.theme-ashon .nivo-caption {
+    font-family: Helvetica, Arial, sans-serif;
+    text-shadow: none;
+    text-align: right;
+}
+#top-slider .nivo-caption p, #top-slider .nivo-caption h1,#top-slider .nivo-caption h2,#top-slider .nivo-caption h3 {
+	padding: 0; margin: 0;
+}
+#top-slider .nivo-caption h1,#top-slider .nivo-caption h2,#top-slider .nivo-caption h3 {
+	font-size: 110%;
+}
+.theme-ashon .nivo-caption a {
+    color:#fff;
+    border-bottom:1px dotted #fff;
+}
+.theme-ashon .nivo-caption a:hover {
+    color:#fff;
+}
+
+.theme-ashon .nivo-controlNav.nivo-thumbs-enabled {
+	width: 100%;
+}
+.theme-ashon .nivo-controlNav.nivo-thumbs-enabled a {
+	width: auto;
+	height: auto;
+	background: none;
+	margin-bottom: 5px;
+}
+.theme-ashon .nivo-controlNav.nivo-thumbs-enabled img {
+	display: block;
+	width: 120px;
+	height: auto;
+}

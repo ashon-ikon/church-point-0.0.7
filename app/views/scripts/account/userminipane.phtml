@@ -1,0 +1,30 @@
+<?php
+	$baseUrl = $this->baseUrl();
+	$this->headLink()->appendStylesheet($this->baseUrl() .'/css/stu/stuhover.css');
+	$this->headScript()->appendFile($this->baseUrl() .'/js/stuHover.js' , 'text/javascript');
+?>
+<!-- <span class="preload1"></span>
+<span class="preload2"></span> -->
+<span class="fl"><?php echo $this->admin_content; ?></span>
+<ul id="nav"><!-- from: stunicholls.com -->
+	<li class="top"><a href="<?php echo $baseUrl; ?>/messages" id="messages" class="top_link"><span class="down">Messages</span></a>
+		<ul class="sub">
+			<li><a href="<?php echo $baseUrl; ?>/messages/inbox">Inbox</a></li>
+			<li><a href="<?php echo  $baseUrl; ?>/messages/compose">Compose</a></li>
+			<li><a href="<?php echo  $baseUrl; ?>/messages/sent">Sent</a></li>
+		</ul>
+	</li>
+	<li class="top"><a href="<?php echo  $baseUrl; ?>/user" id="acount" class="top_link"><span class="down"><?php echo $this->username; ?></span></a>
+		<ul class="sub">
+			<li><a href="<?php echo  $baseUrl; ?>/user" class="fly">Account</a>
+				<ul>
+					<li><a href="<?php echo  $baseUrl; ?>/user/profile">View Profile</a></li>
+					<li><a href="<?php echo $baseUrl , $this->url(array('controller'=>'account','action'=>'edituser'),null, false); ?>">Edit</a></li>
+					<li><a href="<?php echo  $baseUrl, $this->url(array('controller'=>'account','action'=>'resetpassword'),null, false); ?>">Change Password</a></li>
+				</ul>				
+			</li>
+			<li><a href="<?php echo $this->url(array('controller'=>'account', 'action'=>'logout'), null, true); ?>">Logout</a></li>
+		</ul>
+	</li>
+</ul>
+<span class="clr"></span>

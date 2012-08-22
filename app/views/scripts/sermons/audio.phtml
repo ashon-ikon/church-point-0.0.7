@@ -1,0 +1,38 @@
+<?php $baseUrl = $this->baseUrl . DIRECTORY_SEPARATOR ;  
+	  $this->headScript()->appendFile($this->baseUrl() .'/js/mp3player.js' , 'text/javascript');?>
+	  <div id="main" class="fl">
+						<div class="m_cont">
+							<h2>Audio Messages</h2>
+							<h2>Audio Messages</h2>
+							<table border="0">
+								<tr><th width="50%">Title</th><th width="30%">Speaker</th><th width="20%">Download</th></tr>
+								<tr><td>Book of Judges (2)</td><td>Pastor O. S. Pung</td><td><a href="#">link</a></td></tr>
+							</table>
+						</div>
+						<div class="m_cont">
+						something
+						</div>
+						
+		</div>
+		<div id="s2" class="fl">
+			<h3>Listen online</h3>
+			<div id="mp3player">
+				<h1>No flash player!</h1>
+				<p>It looks like you don't have flash player installed. <a href="http://www.macromedia.com/go/getflashplayer" >Click here</a> to go to Macromedia download page.</p>
+				</div>
+				
+				<!-- Script that embeds player. -->
+				<script language="javascript" type="text/javascript">
+				var so = new SWFObject("<?= $baseUrl; ?>media/audio/mp3player/flashmp3player.swf", "player", "300", "180", "5");
+				so.addParam("quality", "high");
+				so.addVariable("content_path","../messages"); // Location of a folder with mp3 files (relative to php script).
+				so.addVariable("color_path","<?= $baseUrl; ?>media/audio/mp3player/default.xml"); // Location of xml file with color settings.
+				so.addVariable("script_path","<?= $baseUrl; ?>media/audio/mp3player/player.php"); // Location of php script.
+				so.write("mp3player");
+				</script>
+				
+				<br/>
+				<small>Powered by <a href="http://www.flashmp3player.org">Flash MP3 Player</a></small>
+		  </div>				
+		</div>
+		<br class="clr" />

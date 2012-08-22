@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application-access>
+    <users>
+        <guest></guest>
+        <member></member>
+        <admin></admin>
+        <superadmin></superadmin>
+    </users>
+    <resources>
+        <item>
+            
+        </item>
+    </resources>
+	<access>
+		
+	</access>
+</application-access>

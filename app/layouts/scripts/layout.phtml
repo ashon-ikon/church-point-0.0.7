@@ -1,0 +1,119 @@
+<?php
+	$appConfig = $this->getAppConfig();
+	$this->headTitle()->setSeparator(' - ');
+	$this->headTitle($this->getAppConfig()->mainName);
+	$this->headTitle($this->escape(APP_NAME). '™');
+//	$this->headMeta()->appendName('keywords', $appConfig->appName . ', ' .$appConfig->mainName . ', ');
+$script = <<< MMM
+(function(){
+    // remove layerX and layerY
+    var all = $.event.props,
+        len = all.length,
+        res = [];
+    while (len--) {
+      var el = all[len];
+      if (el != 'layerX' && el != 'layerY') res.push(el);
+    }
+    $.event.props = res;
+}());
+MMM;
+
+
+	if (!$page_description = $this->layout()->page_desciption)
+	{
+		$page_description = APP_CHURCH_DESCRIPTION;
+	}
+
+	if (!$page_keywords = $this->layout()->page_keywords)
+	{
+		$page_keywords 	= 'Methodist Church, Puchong, Online Community';
+	}
+	
+	$sharing_enabled	= false;
+	if ($this->layout()->enable_sharing )
+		$sharing_enabled= true;
+	
+	// setting content type and character set
+	$this->headMeta()->appendHttpEquiv('Content-Type', 'text/html; charset=UTF-8')
+                 	 ->appendHttpEquiv('Content-Language', 'en-US')
+					// disabling client-side cache
+					 ->appendHttpEquiv('expires', 'Wed, 26 Feb 1997 08:21:57 GMT')
+					 ->appendHttpEquiv('pragma', 'no-cache')
+					 ->appendHttpEquiv('Cache-Control', 'no-cache')
+					 ->appendName('description', $page_description)
+					 ->appendName('keywords', $page_keywords);
+					 
+	
+	$this->headScript()->appendScript($script, $type = 'text/javascript');
+	$this->headScript()->prependFile(	$this->fullBaseUrl() 	.'/js/jquery-1.5.min.js' , 'text/javascript');
+	$this->headScript()->appendFile(	$this->fullBaseUrl() 	.'/js/jquery.floatingbanner.min.js' , 'text/javascript');
+	$this->headScript()->appendFile(	$this->fullBaseUrl() 	.'/js/jquery.sectionhide.0.1.js' , 'text/javascript');
+	$this->headScript()->appendFile(	$this->fullBaseUrl() 	.'/js/jquery.ashon.js' , 'text/javascript');
+	$this->headLink()->prependStylesheet($this->fullBaseUrl() 	.'/css/main.css');
+	
+	$baseUrl = $this->fullBaseUrl() . '/';
+	
+//	$scripts_engine	= Point_Model_Scripts::getInstance();
+?>
+<?php echo $this->doctype(); ?>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head><!-- <noscript><meta content="0; URL=/index/noscript?url=<?php /*echo urlencode($baseUrl. $this->url());*/ ?>" http-equiv="refresh"></noscript> -->
+<?php 
+echo $this->headTitle();
+echo $this->headMeta();
+echo $this->headLink(array('rel' => 'icon', 'type' => 'image/png', 'href' => $baseUrl . 'images/favicon.png'), 'PREPEND'), "\n";
+echo $this->headScript();
+//echo $scripts_engine->getCompressedJScript($this);
+?>
+<?php if ($sharing_enabled): ?>	
+<script type="text/javascript">var switchTo5x=true;</script>
+<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+<script type="text/javascript" src="http://s.sharethis.com/loader.js"></script>
+<?php endif; ?>
+</head><body>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+	<div class="wpr">
+		<div id="top-section">
+			<div id="hdr">
+				<div id="hdr_in" class="ctrpg">
+					<div id="lg" class="fl nldcr"><a href="<?php echo $baseUrl;?>" title="Home"><span class="altname"><?php echo  $appConfig->altName; ?></span><?php echo $appConfig->mainName; ?><small><?php echo $appConfig->slogan; ?></small></a></div>
+					<div id="usr" class="fr">
+						<div id="cplg"><?php echo $appConfig->appName; ?><small>&trade;</small></div>
+						<div class="nldcr unm"><?php echo $this->layout()->userPane;?></div>
+					</div>
+					<div class="clr"></div>
+				</div>
+			</div><!-- end hdr -->
+			<div id="lace"><div><div id="nvbr" class="ctrpg rdbr">
+				<?php echo $this->layout()->menu ?>
+			</div><!-- end nvbr--></div></div>
+		</div>	
+			<div id="mdl">
+				<div  class="ctrpg">
+				<?php if ($this->layout()->page_title){ echo '<h1 class="pgtitle acenter">'.$this->layout()->page_title.'</h1>';}?>
+				<?php echo $this->layout()->content ?>
+				</div><!-- end center-->
+			</div><!-- end mdl -->
+			<div id="ftr">
+				<div  class="ctrpg whbg rnd">
+				<div id="fb-root"></div>
+				<?php echo $this->layout()->footer; ?>
+				</div><!-- end footer content -->
+			</div><!-- end ftr -->
+	</div><!-- end wpr -->
+	<?php if ($sharing_enabled): ?>
+	<script>
+var options={ "publisher": "ur-bb5a41f5-f6eb-b537-20ef-557e5ba448b0", "logo": { "visible": false, "url": "www.permaicmc.org.my", "img": "www.permaicmc.org.my/images/favicon.png", "height": 45}, "ad": { "visible": false, "openDelay": "5", "closeDelay": "0"}, "livestream": { "domain": "", "type": "sharethis"}, "ticker": { "visible": false, "domain": "", "title": "", "type": "sharethis"}, "facebook": { "visible": false, "profile": "http://www.facebook.com/pages/Permai-Chinese-Methodist-Church/33215899949"}, "fblike": { "visible": true, "url": ""}, "fblike": { "visible": false, "url": "http://www.facebook.com/pages/Permai-Chinese-Methodist-Church/33215899949"}, "twitter": { "visible": false, "user": "permaicmc"}, "twfollow": { "visible": false, "url": "http://www.twitter.com/permiacmc"}, "custom": [{ "visible": false, "title": "Custom 1", "url": "", "img": "", "popup": false, "popupCustom": { "width": 300, "height": 250}}, { "visible": false, "title": "Custom 2", "url": "", "img": "", "popup": false, "popupCustom": { "width": 300, "height": 250}}, { "visible": false, "title": "Custom 3", "url": "", "img": "", "popup": false, "popupCustom": { "width": 300, "height": 250}}]};
+var st_bar_widget = new sharethis.widgets.sharebar(options);
+</script>
+	<?php endif; ?>
+</body>
+
+</html>

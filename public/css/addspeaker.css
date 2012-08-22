@@ -1,0 +1,15 @@
+.ctrpg h1 { text-align: left; font-size: 1.3em; text-shadow: 1 1px 0 #999;}
+#sidepane { width: 28%; margin: 0 1%;}
+#prev { margin: 2em 0;}
+.content { text-align: justify; padding: 1.2em 0.3em 1em;}
+.title { width: 13em; display: inline-block; font-size: 1.1em;}
+.form-field { margin: 0.8em 0.5em; background: #fff; padding: 0.3em; }
+.form-field:hover { background: #efefef;}
+.form-notice { font-size: 110%; font-style: italic;}
+.form-notice em { color: #f33;}
+.tabsholder { display: inline-block; margin: 0 auto; width: 90%;}
+.button { height: 3em;}
+#speaker h2 { background: transparent; padding: 0;}
+#sidepane { width: 28%; margin: 0 1%;}
+.content { text-align: justify; padding: 1.2em 0.3em 1em;}
+img { margin: 0 auto; border: 1px solid #CCC; padding: 0.3em; }

@@ -1,0 +1,35 @@
+<?php 
+	$form = $this->form;
+	$successmsg = $this->successmsg;
+	$errormsg = $this->errormsg;
+	
+?>
+<div id="wrapper">
+<?php if ($successmsg):?>
+	<p id="successhead" class="headerfont info rdcorners lightgreybox"><strong>Password Request Received!</strong></p>
+	<div class="info rdcorners greybox">
+		<p> <?php echo $successmsg; ?> </p>
+	</div>
+	
+	<?php elseif ($errormsg): ?>
+
+	<p id="successhead" class="headerfont info rdcorners milderror"><strong>Something went wrong!</strong></p>
+	<div class="info rdcorners greybox">
+		<p> <?php echo $errormsg; ?> </p>
+	</div>
+	<?php endif; ?>
+	
+	<?php if ($this->errors){ echo '<div class="error rdcorners">'; foreach($this->errors as $err) { echo '<p>'.$err.'</p>';} echo '</div>';}?>
+	
+	<?php if (!$successmsg):?>
+	<div class="rdcorners info lightgreybox" id="forgotpwd-page">
+	<table  class="mdlalign"><tbody>
+	<?php echo $form->getFormHeadTag();?>
+	<?php echo $form->email;?>
+	<tr><td>&nbsp;</td><td><?php echo $form->submit;?></td></tr>
+	<?php echo $form->getCloseTag();?>
+	</tbody></table>
+	</div>
+	<?php endif; ?>
+	
+</div>

@@ -1,0 +1,8 @@
+.ctrpg h1 { font-size: 1.3em; text-shadow: 1 1px 0 #999;}
+.title { width: 13em; display: inline-block; font-size: 1.1em;}
+.form-field { margin: 0.8em 0.5em; background: #fff; padding: 0.3em; }
+.form-field:hover { background: #efefef;}
+.tabsholder { display: inline-block; margin: 0 auto; width: 90%;}
+.button { height: 3em;}
+.preview { border: 1px solid #eee; margin: 1em 1em 1em 3em;; padding: 1em; display: inline-block; vertical-align: middle;}
+.validationerror { color: #f33; font-style: italic; }
